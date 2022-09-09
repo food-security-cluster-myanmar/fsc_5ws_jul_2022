@@ -1,0 +1,30 @@
+"0","fsc %>% 
+  filter(activity_red %in% c(""food distribution"") &
+                             !is.na(mmk_per_person) &
+                             !is.na(new_beneficiaries)) %>%
+  mutate(pc_meb = mmk_per_person * 5 / 190555) %>% 
+  group_by(mmk_person_bin) %>% 
+  summarise(avg_pc_of_meb = round(mean(pc_meb) * 100, digits = 2),
+            avg_mmk_month = round(mean(mmk_per_person, na.rm = TRUE)),
+            beneficiaries = round(sum(new_beneficiaries))) %>% 
+  mutate(pc_of_hhd = round(beneficiaries / sum(beneficiaries) * 100, 
+                           digits = 2), 
+         mmk_person_bin = fct_relevel(mmk_person_bin, 
+                                          c(""<10K"", 
+                                          ""10K_<30K"", 
+                                          ""30K_<60K"", 
+                                          ""60K_<100K"", 
+                                          ""100K_<200K"",
+                                          ""200K_<300K"",
+                                          ""300K_<1M"", 
+                                          "">=1M""))) %>% 
+  arrange(mmk_person_bin) %>% 
+  flextable() %>% 
+  set_caption(""MMK values of food disributions by percentage of MEB received"") %>% 
+  set_table_properties(layout = ""autofit"") %>% 
+  theme_zebra() %>% 
+  footnote(part = ""header"",
+           i = 1, j = 4, 
+           value = as_paragraph(""Only persons reached through CBT/CVA modalities are included""))
+"
+"2","Warning: Unknown levels in `f`: 200K_<300K, >=1M"

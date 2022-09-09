@@ -1,0 +1,19 @@
+"0","fsc %>% partner_mean_mmk(""multi-purpose cash transfer"") +
+  labs(title = ""Multi-purpose cash transfer (per hhd)"") + 
+fsc %>% partner_mean_mmk(""food distribution"") +
+  labs(title = ""Food distributions (per person)"") +
+fsc %>% partner_mean_mmk(""food_cash for work_assets"") + 
+  labs(title = ""Food/cash for work/assets (per hhd)"") + 
+fsc %>% partner_mean_mmk(""IGA and small grants"") +
+  labs(title = ""IGA and small grants (per hhd)"") + 
+  plot_annotation(title = ""Cash transfer values of the top implementing partners (by beneficiaries reached)"", 
+                  subtitle = ""Faceted by activity"")
+"
+"2","Selecting by mean_mmk
+"
+"2","Selecting by mean_mmk
+"
+"2","Selecting by mean_mmk
+"
+"2","Selecting by mean_mmk
+"

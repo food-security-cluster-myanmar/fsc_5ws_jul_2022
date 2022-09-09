@@ -1,0 +1,84 @@
+"0","glimpse(fsc_raw)
+"
+"1","Rows: 6,952"
+"1",""
+"1","
+"
+"1","Columns: 71"
+"1",""
+"1","
+"
+"1","$ month_of_implementation                                 [3m[38;5;246m<chr>[39m[23m ""February 2022"", ""February 2022"", ""March 2022"", ""February 2~
+$ donor                                                   [3m[38;5;246m<chr>[39m[23m ""MHF"", ""MHF"", ""MHF"", ""MHF"", ""MHF"", ""MHF"", ""MHF"", ""MHF"", ""MH~
+$ reporting_organization                                  [3m[38;5;246m<chr>[39m[23m ""org_2254"", ""org_2254"", ""org_2254"", ""org_2254"", ""org_2254"",~
+$ reporting_organization_type                             [3m[38;5;246m<chr>[39m[23m ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""IN~
+$ implementing_partner                                    [3m[38;5;246m<chr>[39m[23m ""org_2254"", ""org_2254"", ""org_2254"", ""org_2254"", ""org_2254"",~
+$ implementing_partner_type                               [3m[38;5;246m<chr>[39m[23m ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""INGO"", ""IN~
+$ state_region                                            [3m[38;5;246m<chr>[39m[23m ""Rakhine"", ""Rakhine"", ""Rakhine"", ""Rakhine"", ""Rakhine"", ""Rak~
+$ township                                                [3m[38;5;246m<chr>[39m[23m ""Maungdaw"", ""Maungdaw"", ""Maungdaw"", ""Maungdaw"", ""Maungdaw"",~
+$ village_tract_town                                      [3m[38;5;246m<chr>[39m[23m ""Pan Taw Pyin"", ""Pan Taw Pyin"", ""Pan Taw Pyin"", ""Pan Taw Py~
+$ village_ward                                            [3m[38;5;246m<chr>[39m[23m ""Ah Nauk"", ""Ah Nauk"", ""Ah Nauk"", ""Ah Shey"", ""Ah Shey"", ""Aun~
+$ idp_camp_site_name                                      [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ specify_location_if_the_the_location_is_not_in_the_list [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ location_combined                                       [3m[38;5;246m<chr>[39m[23m ""Maungdaw: Ah Nauk"", ""Maungdaw: Ah Nauk"", ""Maungdaw: Ah Nau~
+$ location_type                                           [3m[38;5;246m<chr>[39m[23m ""Village"", ""Village"", ""Village"", ""Village"", ""Village"", ""Vil~
+$ rural_or_urban                                          [3m[38;5;246m<chr>[39m[23m ""Rural"", ""Rural"", ""Rural"", ""Rural"", ""Rural"", ""Rural"", ""Rura~
+$ humanitarian_or_development                             [3m[38;5;246m<chr>[39m[23m ""Humanitarian"", ""Humanitarian"", ""Humanitarian"", ""Humanitari~
+$ response_plan_if_project_under_fts                      [3m[38;5;246m<chr>[39m[23m ""Other"", ""Other"", ""Other"", ""Other"", ""Other"", ""Other"", ""Othe~
+$ project_code                                            [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ fsc_main_activity                                       [3m[38;5;246m<chr>[39m[23m ""provision of crop, vegetable and seed kits"", ""provision of~
+$ activity_description                                    [3m[38;5;246m<chr>[39m[23m ""Home-gardening refill kits distribution"", ""Home-gardening ~
+$ was_nutrition_mainstreamed_in_activity                  [3m[38;5;246m<chr>[39m[23m ""No"", ""No"", ""No"", ""No"", ""No"", ""No"", ""No"", ""No"", ""No"", ""No"",~
+$ fsc_objectives                                          [3m[38;5;246m<chr>[39m[23m ""Objective 3: Restore, protect and improve livelihoods and ~
+$ hrp_indicator                                           [3m[38;5;246m<chr>[39m[23m ""Number of vulnerable, non-displaced stateless and returned~
+$ activity_status                                         [3m[38;5;246m<chr>[39m[23m ""Completed"", ""Completed"", ""Completed"", ""Completed"", ""Comple~
+$ conditionality                                          [3m[38;5;246m<chr>[39m[23m ""Conditional"", ""Conditional"", ""Conditional"", ""Conditional"",~
+$ frequency                                               [3m[38;5;246m<chr>[39m[23m ""Quarterly"", ""Quarterly"", ""One-off"", ""Quarterly"", ""Quarterl~
+$ delivery_modality                                       [3m[38;5;246m<chr>[39m[23m ""In-kind"", ""In-kind"", ""CBT/CVA"", ""In-kind"", ""In-kind"", ""In-~
+$ type_of_in_kind_assistance                              [3m[38;5;246m<chr>[39m[23m ""Agricultural inputs"", ""Agricultural inputs"", NA, ""Agricult~
+$ unit                                                    [3m[38;5;246m<chr>[39m[23m ""Kg"", ""Kg"", NA, ""Kg"", ""Kg"", ""Kg"", ""Kg"", ""Kg"", ""Kg"", NA, ""Kg~
+$ quantity                                                [3m[38;5;246m<dbl>[39m[23m 52.00000, 4.00000, NA, 32.00000, 2.00000, 12.00000, 1.00000~
+$ total_value                                             [3m[38;5;246m<dbl>[39m[23m NA, NA, 2600, NA, NA, NA, NA, NA, NA, 2600, NA, NA, 1200, N~
+$ value_per_household                                     [3m[38;5;246m<dbl>[39m[23m NA, NA, 200, NA, NA, NA, NA, NA, NA, 200, NA, NA, 200, NA, ~
+$ value_per_individual                                    [3m[38;5;246m<dbl>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ currency                                                [3m[38;5;246m<chr>[39m[23m NA, NA, ""USD"", NA, NA, NA, NA, NA, NA, ""USD"", NA, NA, ""USD""~
+$ value_per_household_usd                                 [3m[38;5;246m<dbl>[39m[23m NA, NA, 200, NA, NA, NA, NA, NA, NA, 200, NA, NA, 200, NA, ~
+$ cash_delivery_mechanism                                 [3m[38;5;246m<chr>[39m[23m NA, NA, ""Direct cash payment"", NA, NA, NA, NA, NA, NA, ""Dir~
+$ food_insecurity_status                                  [3m[38;5;246m<chr>[39m[23m ""Food secure"", ""Food secure"", ""Food secure"", ""Food secure"",~
+$ food_security_indicator_used                            [3m[38;5;246m<chr>[39m[23m ""FCS"", ""FCS"", ""FCS"", ""FCS"", ""FCS"", ""FCS"", ""FCS"", ""FCS"", ""FC~
+$ evidence                                                [3m[38;5;246m<chr>[39m[23m ""98% of HH have Acceptable FCS"", ""98% of HH have Acceptable~
+$ beneficiary_type                                        [3m[38;5;246m<chr>[39m[23m ""Host/local Community"", ""Host/local Community"", ""Host/local~
+$ number_child_male                                       [3m[38;5;246m<dbl>[39m[23m 84, 5, 16, 38, 2, 8, 1, 263, 13, 20, 100, 7, 13, 23, NA, 43~
+$ number_child_female                                     [3m[38;5;246m<dbl>[39m[23m 98, 5, 24, 56, 1, 10, 0, 304, 15, 18, 103, 9, 7, 22, NA, 30~
+$ number_adult_male                                       [3m[38;5;246m<dbl>[39m[23m 81, 4, 12, 53, 0, 25, 1, 163, 2, 6, 59, 0, 2, 41, NA, 33, 0~
+$ number_adult_female                                     [3m[38;5;246m<dbl>[39m[23m 88, 6, 14, 48, 5, 28, 2, 242, 18, 23, 76, 6, 8, 46, 17, 39,~
+$ number_elderly_male                                     [3m[38;5;246m<dbl>[39m[23m 7, 0, 1, 6, 0, 6, 1, 24, 1, 0, 7, 0, 0, 2, 0, 3, 0, 6, 0, 1~
+$ number_elderly_female                                   [3m[38;5;246m<dbl>[39m[23m 4, 0, 2, 0, 0, 3, 0, 20, 2, 1, 12, 0, 1, 7, 0, 5, 0, 4, 1, ~
+$ number_of_reached_households                            [3m[38;5;246m<dbl>[39m[23m 52, 4, 13, 32, 2, 12, 1, 162, 12, 13, 49, 4, 6, 41, NA, 26,~
+$ number_of_reached_beneficiaries                         [3m[38;5;246m<dbl>[39m[23m 362, 20, 69, 201, 8, 80, 5, 1016, 51, 68, 357, 22, 31, 141,~
+$ new_beneficiaries                                       [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0, 80, 0, 1016, 0, 0, 0, 0, 0, 141, 0, 153, 0, ~
+$ people_with_disability_male                             [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0, 0, 0, 6, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0,~
+$ people_with_disability_female                           [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0,~
+$ total_number_of_people_with_disability                  [3m[38;5;246m<dbl>[39m[23m 0, 0, 0, 0, 0, 0, 0, 10, 0, 0, 1, 0, 0, 4, 0, 0, 0, 0, 0, 0~
+$ comments                                                [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ""Rice(1~
+$ cluster_name                                            [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ country                                                 [3m[38;5;246m<chr>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ admin1_pcode                                            [3m[38;5;246m<chr>[39m[23m ""MMR012"", ""MMR012"", ""MMR012"", ""MMR012"", ""MMR012"", ""MMR012"",~
+$ admin2_pcode                                            [3m[38;5;246m<lgl>[39m[23m NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ admin3_pcode                                            [3m[38;5;246m<chr>[39m[23m ""MMR012009"", ""MMR012009"", ""MMR012009"", ""MMR012009"", ""MMR012~
+$ adm1_3                                                  [3m[38;5;246m<chr>[39m[23m ""Rakhine-Maungdaw"", ""Rakhine-Maungdaw"", ""Rakhine-Maungdaw"",~
+$ adm3_4                                                  [3m[38;5;246m<chr>[39m[23m ""Maungdaw-Pan Taw Pyin"", ""Maungdaw-Pan Taw Pyin"", ""Maungdaw~
+$ row_index                                               [3m[38;5;246m<chr>[39m[23m ""Row0001"", ""Row0002"", ""Row0003"", ""Row0004"", ""Row0005"", ""Row~
+$ fsc_main_programme                                      [3m[38;5;246m<chr>[39m[23m ""Agriculture"", ""Agriculture"", ""Livelihoods"", ""Agriculture"",~
+$ g_fsc_main                                              [3m[38;5;246m<chr>[39m[23m ""Livelihoods"", ""Livelihoods"", ""Livelihoods"", ""Livelihoods"",~
+$ ocha_tsp_name                                           [3m[38;5;246m<chr>[39m[23m ""Maungdaw"", ""Maungdaw"", ""Maungdaw"", ""Maungdaw"", ""Maungdaw"",~
+$ ocha_pcode                                              [3m[38;5;246m<chr>[39m[23m ""MMR012009"", ""MMR012009"", ""MMR012009"", ""MMR012009"", ""MMR012~
+$ hrp_indicators                                          [3m[38;5;246m<chr>[39m[23m ""SO3"", ""SO3"", ""SO3"", ""SO3"", ""SO3"", ""SO3"", ""SO3"", ""SO3"", ""SO~
+$ metric_ton                                              [3m[38;5;246m<dbl>[39m[23m 0.05200000, 0.00400000, NA, 0.03200000, 0.00200000, 0.01200~
+$ total_value_usd                                         [3m[38;5;246m<dbl>[39m[23m 0, 0, 2600, 0, 0, 0, 0, 0, 0, 2600, 0, 0, 1200, 0, 0, 0, 0,~
+$ hub                                                     [3m[38;5;246m<chr>[39m[23m ""Northwest"", ""Northwest"", ""Northwest"", ""Northwest"", ""Northw~
+$ standard_activities                                     [3m[38;5;246m<chr>[39m[23m ""provision of crop, vegetable and seed kits"", ""provision of~
+$ actual_reporting_period                                 [3m[38;5;246m<chr>[39m[23m ""Q1 Report"", ""Q1 Report"", ""Q1 Report"", ""Q1 Report"", ""Q1 Rep~"
+"1",""
+"1","
+"

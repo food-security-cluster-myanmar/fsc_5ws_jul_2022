@@ -1,0 +1,48 @@
+"0","fsc %>%  
+  filter(july == ""july"") %>% 
+  group_by(activity_red, mmk_hhd_bin) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries)) %>% 
+  mutate(pc = beneficiaries / sum(beneficiaries)) %>% 
+  filter(activity_red != ""microfinance activities"") %>% 
+  mutate(mmk_hhd_bin = fct_relevel(mmk_hhd_bin, 
+                                   c(""<10K"", 
+                                          ""10K_<30K"", 
+                                          ""30K_<100K"", 
+                                          ""100K_<200K"",
+                                          ""200K_<300K"", 
+                                          ""300K_<1M"", 
+                                          "">=1M""))) %>% 
+  arrange(mmk_hhd_bin) %>% 
+  ggplot(aes(x = pc, y = activity_red,
+             fill = fct_relevel(mmk_hhd_bin, 
+                                   c(""<10K"", 
+                                          ""10K_<30K"", 
+                                          ""30K_<100K"", 
+                                          ""100K_<200K"",
+                                          ""200K_<300K"", 
+                                          ""300K_<1M"", 
+                                          "">=1M"")))) + 
+  geom_col() + 
+  scale_x_continuous(labels = percent, breaks = seq(0, 1, by = .2)) + 
+  scale_fill_viridis_d(option = ""mako"", direction = -1, 
+                       na.value = ""grey50"") + 
+  geom_text(aes(y = activity_red, 
+                x = pc + .125, 
+                label = comma(total, accuracy = 1), fill = NULL), 
+            data = activity_totals, hjust = ""inward"", size = 3.5) + 
+  labs(x = ""% of activity total"", 
+       y = """", 
+       fill = """", 
+       title = ""Percentage of cash beneficiaries by activity, July 2022"", 
+       subtitle = ""Beneficiaries reached in July 2022 at the end of each bar\nGrey/NA shows beneficiaries of non-cash interventions"")
+"
+"2","`summarise()` has grouped output by 'activity_red'. You can override using the `.groups` argument.
+"
+"2","Warning: Unknown levels in `f`: <10K, 200K_<300K, 300K_<1M, >=1M"
+"2","Warning: Unknown levels in `f`: 100K_<200K, 200K_<300K, 300K_<1M, >=1M"
+"2","Warning: Unknown levels in `f`: <10K, 10K_<30K, 200K_<300K, >=1M"
+"2","Warning: Unknown levels in `f`: 10K_<30K, 30K_<100K, 200K_<300K, 300K_<1M, >=1M"
+"2","Warning: Unknown levels in `f`: <10K, 10K_<30K, 30K_<100K, 200K_<300K"
+"2","Warning: Unknown levels in `f`: <10K, 10K_<30K, 30K_<100K, 100K_<200K, 200K_<300K, 300K_<1M, >=1M"
+"2","Warning: Unknown levels in `f`: <10K, 10K_<30K, 30K_<100K"
+"2","Warning: Unknown levels in `f`: <10K, 10K_<30K, 30K_<100K, 100K_<200K, 200K_<300K, 300K_<1M, >=1M"

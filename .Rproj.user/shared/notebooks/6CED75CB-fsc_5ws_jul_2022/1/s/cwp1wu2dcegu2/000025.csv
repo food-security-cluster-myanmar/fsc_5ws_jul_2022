@@ -1,0 +1,27 @@
+"0","fsc %>% filter(!is.na(total_value_mmk) & 
+                 activity_red %out% c(""FFS and farmer training"", ""vocational training"")) %>%
+  mutate(activity_red = fct_rev(fct_relevel(activity_red, 
+                                    c(""food distribution"",
+                                      ""crop, vegentable and seed kits"",
+                                      ""multi-purpose cash transfer"",
+                                      ""food_cash for work_assets"", 
+                                      ""IGA and small grants"")))) %>% 
+  arrange(activity_red) %>% 
+  ggplot(aes(y = activity_red, 
+             x = mmk_per_person, 
+             colour = activity_red)) + 
+  geom_jitter(alpha = .1, 
+              aes(size = beneficiaries)) +
+  geom_boxplot(alpha = .8, 
+               outlier.alpha = .2) + 
+  scale_x_continuous(trans = ""log10"", 
+                     breaks = c(10000, 30000, 100000, 
+                                300000, 1000000), 
+                     labels = comma) +
+  theme(legend.position = ""none"", 
+        axis.text.x = element_text(angle = 60, hjust = .5, vjust = .5)) +
+  labs(x = ""MMK per person"", y = """", 
+       title = ""Boxplots of USD transfer values per person in 2022, as of July 2022"", 
+       subtitle = ""Thick line in each box is the average;\n Points are individual interventions, sizes indicate number of beneficiaries"")
+"
+"2","Warning: Unknown levels in `f`: crop, vegentable and seed kits"
