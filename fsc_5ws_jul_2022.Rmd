@@ -701,10 +701,10 @@ fsc %>%
   flextable() %>% 
   set_caption("Beneficiaries reached by agricultural and livelihood activities") %>% 
   theme_zebra() %>% 
-  set_table_properties(layout = "autofit") %>% 
   footnote(part = "header", 
            i = 1, j = 4,
-             value = as_paragraph(("as of 31 July 2022")))
+             value = as_paragraph(("as of 31 July 2022"))) %>% 
+  set_table_properties(width = .8, layout = "autofit")
   
 ```
 
@@ -752,10 +752,11 @@ fsc %>%
   flextable() %>% 
   set_caption("Percentage of benficiaries reached by activity and delivery modality") %>% 
   theme_zebra() %>% 
-  set_table_properties(layout = "autofit") %>% 
   footnote(part = "header", 
            i = 1, j = 6, 
-           value = as_paragraph("as of 31 July 2022"))
+           value = as_paragraph("as of 31 July 2022")) %>% 
+  set_table_properties(layout = "autofit", 
+                       width = .95)
 
 ```
 
@@ -1527,6 +1528,7 @@ fsc %>%
          `%_of_total` = pc) %>% 
   adorn_totals("row") %>% 
   flextable() %>% 
+  set_table_properties(width = .85) %>% 
   set_caption(caption = "Persons reached by beneficiary type, as of 31 July 2022") %>% 
   theme_zebra()
   
@@ -1719,7 +1721,7 @@ pin %>%
 
 ### 6.3 Interactive reference table
 
-In the interactive table below, is a list of townships sorted by the gap between the targeted population and beneficiaries reached in 2022. Any of the columns can be sort; the search bars above each column can also assist in filtering.
+In the interactive table below, is a list of townships sorted by the gap between the targeted population and beneficiaries reached in 2022. Any of the columns can be sorted; the search bars above each column can also be used to filter entries.
 
 <br>
 

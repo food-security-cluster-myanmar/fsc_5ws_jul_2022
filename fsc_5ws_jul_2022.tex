@@ -1,0 +1,1676 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{float}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Report on 5Ws: July 2022},
+  pdfauthor={Myanmar Food Security Cluster},
+  colorlinks=true,
+  linkcolor={red},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{\textbf{Report on 5Ws: July 2022}}
+\author{Myanmar Food Security Cluster}
+\date{2022-09-01}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{4}
+\tableofcontents
+}
+```\{r setup, include=FALSE\} knitr::opts\_chunk\$set(echo = FALSE,
+fig.width=9, message = FALSE, warning=FALSE) library(tidyverse)
+library(readxl) library(lubridate) library(stringi) library(pander)
+library(janitor) library(fuzzyjoin) library(scales) library(magrittr)
+library(sf) library(kableExtra) library(viridis) library(skimr)
+library(plotly) library(patchwork) library(broom) library(DT)
+library(here) library(tidytext) library(ggforce) library(flextable)
+
+theme\_set(theme\_light())
+
+\hypertarget{disabling-scientific-notation}{%
+\section{disabling scientific
+notation}\label{disabling-scientific-notation}}
+
+options(scipen = 100)
+
+\hypertarget{pander-tables-all-in-one-row}{%
+\section{pander tables all in one
+row}\label{pander-tables-all-in-one-row}}
+
+panderOptions(`table.split.table', Inf)
+
+\hypertarget{pander-thousands-separator}{%
+\section{pander thousands separator}\label{pander-thousands-separator}}
+
+panderOptions(``big.mark'', ``,'')
+
+\hypertarget{replace}{%
+\section{replace}\label{replace}}
+
+opts \textless- options(knitr.kable.NA = ``\,``)
+
+\texttt{\%out\%} \textless- Negate(\texttt{\%in\%})
+
+\hypertarget{function-for-transposing-df}{%
+\section{function for transposing
+df}\label{function-for-transposing-df}}
+
+transpose\_df \textless- function(df) \{ t\_df \textless-
+data.table::transpose(df) colnames(t\_df) \textless- rownames(df)
+rownames(t\_df) \textless- colnames(df) t\_df \textless- t\_df
+\%\textgreater\% tibble::rownames\_to\_column(.data = .)
+\%\textgreater\% tibble::as\_tibble(.) return(t\_df) \}
+
+\hypertarget{function-beneficiary-summaries}{%
+\section{function beneficiary
+summaries}\label{function-beneficiary-summaries}}
+
+sum\_ben \textless- function(df, column\_var)\{
+
+column\_var \textless- enquo(column\_var)
+
+df \%\textgreater\% group\_by(!!column\_var) \%\textgreater\% \# must
+add bang-bang summarise(beneficiaries = sum(new\_beneficiaries, na.rm =
+TRUE), .groups = ``drop'') \%\textgreater\% arrange(desc(beneficiaries))
+
+\}
+
+\hypertarget{function-beneficiary-summaries-2-grouped-variables}{%
+\section{function beneficiary summaries, 2 grouped
+variables}\label{function-beneficiary-summaries-2-grouped-variables}}
+
+sum\_ben2 \textless- function(df, column\_var1, column\_var2)\{
+
+column\_var1 \textless- enquo(column\_var1) column\_var2 \textless-
+enquo(column\_var2)
+
+df \%\textgreater\% group\_by(!!column\_var1, !!column\_var2)
+\%\textgreater\% \# must add bang-bang summarise(beneficiaries =
+sum(new\_beneficiaries, na.rm = TRUE), .groups = ``drop'')
+
+\}
+
+\hypertarget{scaling-functions}{%
+\section{scaling functions}\label{scaling-functions}}
+
+range01 \textless- function(x)\{(x-min(x))/(max(x)-min(x))\} range\_wna
+\textless- function(x)\{(x-min(x, na.rm = TRUE))/(max(x, na.rm =
+TRUE)-min(x, na.rm = TRUE))\}
+
+\#mode function mode \textless- function(x) \{ ux \textless- unique(x)
+ux{[}which.max(tabulate(match(x, ux))){]} \}
+
+\begin{verbatim}
+
+
+```{r data}
+
+fsc <- read_csv("./data/fsc.csv") %>% 
+  mutate(july = ifelse(month_of_implementation == "July 2022", 
+                       "july", "jan_to_jun")) 
+
+fsc_2021 <- read_csv("./data/fsc_2021.csv")
+
+pin <- read_csv("./data/fs_pin.csv")
+
+hd_list <- fsc %>% 
+  group_by(humanitarian_or_development, activity_red) %>%
+  mutate(hd = ifelse(humanitarian_or_development == "Humanitarian" |
+                       activity_red == "food distribution", 
+                     "Humanitarian", 
+                     "Development")) %>% 
+  mutate(humanitarian_or_development = 
+           ifelse(activity_red == "multi-purpose cash transfer" &
+                    humanitarian_or_development == "Development",
+                  "Humanitarian", humanitarian_or_development)
+         ) %>%
+  group_by(hd) %>% 
+  summarise_at("beneficiaries", sum) %>%
+  mutate(pc = round(beneficiaries / sum(beneficiaries) * 100, digits = 2))
+
+# shapefiles
+pcode3_shape <- st_read("./mmr_polbnda_adm3_mimu_250k/mmr_polbnda_adm3_mimu_250k.shp", quiet = TRUE) %>% 
+  rename(state = ST, 
+        admin1_pcode = ST_PCODE,
+        township = TS,
+        admin3_pcode = TS_PCODE) %>% 
+ mutate(admin3_pcode = ifelse(str_detect(township, "Hlaingtharya"), "MMR013008", admin3_pcode))
+
+pcode1_shape <- st_read("./mmr_polbnda2_adm1_mimu_250k/mmr_polbnda2_adm1_mimu_250k.shp", quiet = TRUE) %>% 
+ rename(state = ST, 
+        admin1_pcode = ST_PCODE) %>% st_as_sf()
+\end{verbatim}
+
+\href{https://food-security-cluster-myanmar.github.io/}{Food Security
+Cluster Myanmar homepage}
+
+\hypertarget{summary-of-new-achievements}{%
+\subsection{Summary of new
+achievements}\label{summary-of-new-achievements}}
+
+```\{r maps-tsp-jul, fig.height=9\} fsc \%\textgreater\% filter(july ==
+``july'') \%\textgreater\% group\_by(admin3\_pcode\_old)
+\%\textgreater\% summarise(beneficiaries = sum(new\_beneficiaries))
+\%\textgreater\% right\_join(pcode3\_shape, by =
+c(``admin3\_pcode\_old'' = ``admin3\_pcode'')) \%\textgreater\%
+st\_as\_sf() \%\textgreater\% ggplot() + geom\_sf(aes(fill =
+beneficiaries), size = .1) + scale\_fill\_viridis(direction = -1, trans
+= ``log10'', breaks = c(100, 1000, 10000, 100000, 500000), labels =
+comma, na.value = ``gray90'', begin = .3) + theme\_void() +
+theme(legend.text = element\_text(size = 10), legend.title =
+element\_text(size = 10), legend.key.size = unit(.7, ``cm''),
+plot.background = element\_rect(fill = ``white'', colour = ``white'')) +
+labs(title = ``Beneficiaries by township, July 2022'', subtitle =
+``Townships in grey do not have any partners present'', fill =
+``Beneficiaries'') +
+
+fsc \%\textgreater\% \# filter(quarter == ``q2'') \%\textgreater\%
+group\_by(admin3\_pcode\_old) \%\textgreater\% summarise(beneficiaries =
+sum(new\_beneficiaries)) \%\textgreater\% right\_join(pcode3\_shape, by
+= c(``admin3\_pcode\_old'' = ``admin3\_pcode'')) \%\textgreater\%
+st\_as\_sf() \%\textgreater\% ggplot() + geom\_sf(aes(fill =
+beneficiaries), size = .1) + scale\_fill\_viridis(direction = -1, trans
+= ``log10'', breaks = c(100, 1000, 10000, 100000, 500000), labels =
+comma, na.value = ``gray90'') + theme\_void() + theme(legend.text =
+element\_text(size = 10), legend.title = element\_text(size = 10),
+legend.key.size = unit(.7, ``cm''), plot.background = element\_rect(fill
+= ``white'', colour = ``white'')) + labs(title = ``Beneficiaries by
+township, as of 2022-07-31'', subtitle = ``Townships in grey do not have
+any partners present'', fill = ``Beneficiaries'')
+
+\hypertarget{ggsave.maps_q1_q2.png-dpi-300-height-9-width-8-units-in}{%
+\section{ggsave(``./maps\_q1\_q2.png'', dpi = 300, height = 9, width =
+8, units =
+``in'')}\label{ggsave.maps_q1_q2.png-dpi-300-height-9-width-8-units-in}}
+
+\begin{verbatim}
+
+
+
+```{r overall-pc, eval=FALSE}
+filter(fsc, humanitarian_or_development == "Humanitarian") %>% {sum(.$new_beneficiaries)} / sum(pin$fs_targeted)
+
+round(filter(fsc, humanitarian_or_development == "Humanitarian" & july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} / filter(fsc, july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} * 100, digits = 2)
+\end{verbatim}
+
+Beneficiaries of humanitarian action formed
+\texttt{r\ round(filter(fsc,\ humanitarian\_or\_development\ ==\ "Humanitarian"\ \&\ july\ ==\ "july")\ \%\textgreater{}\%\ \{sum(.\$new\_beneficiaries,\ na.rm\ =\ TRUE)\}\ /\ filter(fsc,\ july\ ==\ "july")\ \%\textgreater{}\%\ \{sum(.\$new\_beneficiaries,\ na.rm\ =\ TRUE)\}\ *\ 100,\ digits\ =\ 2)}\%
+of the
+\texttt{r\ filter(fsc,\ july\ ==\ "july")\ \%\textgreater{}\%\ \{sum(.\$new\_beneficiaries,\ na.rm\ =\ TRUE)\}\ \%\textgreater{}\%\ format(big.mark\ =\ ",")}
+beneficiaries in July 2022. The remainder were reached through
+development interventions.
+
+In this report, when beneficiaries are mentioned, the Food Security
+Cluster is referring to unique beneficiaries or individuals. This is
+different from a beneficiary frequency which is an instance of a person
+receiving aid i.e.~a person who receives food distributions, a crop,
+vegetable and seed kit and farmer training would be counted as three
+beneficiary frequencies, but as only one beneficiary.
+
+As monthly reporting has just started, the volume of reporting is still
+lower than the pro-rated quarterly submissions. This means that several
+partners will hold off on reporting their achievements until the end of
+the quarter.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fsc \%\textgreater{}\%   }
+\NormalTok{  group\_by(date) \%\textgreater{}\% }
+\NormalTok{  summarise(beneficiaries = sum(new\_beneficiaries)) \%\textgreater{}\% }
+\NormalTok{  arrange(date) \%\textgreater{}\% }
+\NormalTok{  mutate(beneficiaries = cumsum(beneficiaries), }
+\NormalTok{         new\_beneficiaries = ifelse(}
+\NormalTok{           is.na(beneficiaries {-} lag(beneficiaries)), }
+\NormalTok{           beneficiaries, }
+\NormalTok{           beneficiaries {-} lag(beneficiaries)}
+\NormalTok{         ), }
+\NormalTok{         \textasciigrave{}\%\_increase\textasciigrave{} = round((beneficiaries {-} lag(beneficiaries)) / }
+\NormalTok{                            lag(beneficiaries) * 100, }
+\NormalTok{                          digits = 2), }
+\NormalTok{         date = format(as.Date(date), "\%b \%Y")) \%\textgreater{}\% }
+\NormalTok{  flextable() \%\textgreater{}\% }
+\NormalTok{  set\_caption("Beneficiaries reached per month") \%\textgreater{}\% }
+\NormalTok{  theme\_zebra() \%\textgreater{}\% }
+\NormalTok{  set\_table\_properties(layout = "autofit", width = .7) }
+\end{Highlighting}
+\end{Shaded}
+
+In terms of activities, farmer training and food distributions formed
+the bulk of the activities implemented in July. However, as mentioned
+earlier, these figure will be revised when new data comes in.
+
+\texttt{\{r\ activity-list\}\ activity\_list\ \textless{}-\ fsc\ \%\textgreater{}\%\ \ \ \ sum\_ben2(quarter,\ activity\_red)\ \%\textgreater{}\%\ \ \ \ group\_by(quarter)\ \%\textgreater{}\%\ \ \ \ mutate(pc\ =\ round(beneficiaries\ /\ sum(beneficiaries)\ *\ 100,\ digits\ =\ 2))}
+
+```\{r barplot-activity\}
+
+fsc \%\textgreater\% filter(july == ``july'') \%\textgreater\%
+group\_by(activity = activity\_red) \%\textgreater\%
+summarise(beneficiaries = sum(new\_beneficiaries)) \%\textgreater\%
+mutate(activity = fct\_reorder(activity, beneficiaries))
+\%\textgreater\% ggplot(aes(x = beneficiaries, y = activity, fill =
+activity)) + geom\_col() + geom\_text(aes(label = comma(beneficiaries)),
+hjust = ``inward'') + scale\_x\_continuous(labels = comma) + labs(x =
+``Number of beneficiaries'', y = ````, title =''Beneficiaries reached in
+July 2022, by activity'') + theme(legend.position = ``none'')
+
+\begin{verbatim}
+
+<br>
+
+Overall, however, food distribution remains far and away the largest activity. 
+
+<br>
+
+```{r table-activity}
+fsc %>% 
+  group_by(july, activity_red) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries)) %>% 
+  pivot_wider(names_from = july, values_from = beneficiaries, 
+              values_fill = 0) %>% 
+  ungroup() %>% 
+  mutate(total = jan_to_jun + july, 
+         pc = round(total / sum(total, na.rm = TRUE) * 100, 
+                    digits = 2), 
+         pc_july = round(july / sum(july, na.rm = TRUE) * 100, 
+                             digits = 2)) %>% 
+  filter(total != 0) %>% 
+  arrange(desc(pc)) %>% 
+  select(activity = activity_red, 
+         jan_to_jun, july, 
+         `%_of_july` = pc_july, 
+         total, 
+         `%_of_total` = pc) %>% 
+  adorn_totals("row") %>% 
+  flextable() %>% 
+  set_caption(caption = "Beneficiaries by acitivity, as of 31 July 2022") %>% 
+  theme_zebra() %>% 
+  set_table_properties(layout = "autofit",
+              width = .85)
+
+\end{verbatim}
+
+\texttt{\{r\ ben-type-list\}\ ben\_type\_list\ \textless{}-\ fsc\ \%\textgreater{}\%\ \ \ filter(july\ ==\ "july")\ \%\textgreater{}\%\ \ \ \ group\_by(beneficiary\_type)\ \%\textgreater{}\%\ \ \ \ summarise(beneficiaries\ =\ sum(new\_beneficiaries))\ \%\textgreater{}\%\ \ \ \ mutate(pc\ =\ round(beneficiaries\ /\ sum(beneficiaries)\ *\ 100,\ digits\ =\ 2))}
+
+Food security interventions in July 2022 overwhelmingly targeted persons
+in host and local communities, this group forms
+\texttt{r\ ben\_type\_list\ \%\textgreater{}\%\ filter(beneficiary\_type\ ==\ "Host/local\ Community")\ \%\textgreater{}\%\ pull(pc)}\%
+of all food distribution support, or
+\texttt{r\ ben\_type\_list\ \%\textgreater{}\%\ filter(beneficiary\_type\ ==\ "Host/local\ Community")\ \%\textgreater{}\%\ pull(beneficiaries)\ \%\textgreater{}\%\ format(big.mark\ =\ ",")}
+beneficiary frequencies (this includes if a person had been reached
+previously and are currently receiving their second or third round of
+assistance).
+
+\hypertarget{geographies}{%
+\subsection{1. Geographies}\label{geographies}}
+
+\hypertarget{states}{%
+\subsubsection{1.1 States}\label{states}}
+
+A total of
+\texttt{r\ format(sum(fsc\$new\_beneficiaries),\ big.mark\ =\ ",")}
+beneficiaries were reached in July 2022.
+
+```\{r state-july, fig.height = 6\}
+
+fsc \%\textgreater\% filter(july == ``july'') \%\textgreater\%
+group\_by(state) \%\textgreater\% summarise(beneficiaries =
+sum(new\_beneficiaries)) \%\textgreater\% ggplot(aes(y =
+fct\_reorder(state, beneficiaries), x = beneficiaries, fill = state)) +
+geom\_col() + geom\_text(aes(label = comma(beneficiaries)), hjust =
+``inward'') + scale\_x\_continuous(labels = comma) + labs(fill = ````, x
+=''Beneficiaries'', y = ````, title =''Beneficiaries reached by state,
+only July 2022'') + theme(legend.position = ``none'')
+
+\begin{verbatim}
+
+<br>
+
+Overall, these are year-to-date state-level breakdowns of beneficiaries reached: 
+
+<br>
+
+```{r state-ytd, fig.height = 6}
+
+fsc %>% 
+  group_by(state) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries)) %>% 
+  ggplot(aes(y = fct_reorder(state, beneficiaries), 
+             x = beneficiaries, 
+             fill = state)) + 
+  geom_col() + 
+  geom_text(aes(label = comma(beneficiaries)), 
+            hjust = "inward") +
+  scale_x_continuous(labels = comma) + 
+  labs(fill = "", 
+       x = "Beneficiaries", 
+       y = "", 
+       title = "Beneficiaries reached by state, as of 31 July 2022") + 
+  theme(legend.position = "none")
+  
+\end{verbatim}
+
+```\{r state-list\} state\_list \textless- fsc \%\textgreater\%
+sum\_ben2(state, quarter) \%\textgreater\% group\_by(quarter)
+\%\textgreater\% mutate(pc = round(beneficiaries / sum(beneficiaries) *
+100, digits = 2))
+
+\begin{verbatim}
+
+
+July saw much fewer persons reached in Yangon than in previous months. It is hoped that the reallocation of resources out of the affluent urban core has been accelerated. It is also encouraging to see Magway receive the second-most support, after Rakhine. 
+
+```{r eval= FALSE}
+fsc %>% 
+  filter(july == "july") %>% 
+  summarise(beneficiaries = sum(new_beneficiaries))
+\end{verbatim}
+
+\hypertarget{townships}{%
+\subsubsection{1.2 Townships}\label{townships}}
+
+A total of
+\texttt{r\ distinct(fsc,\ admin3\_pcode)\ \%\textgreater{}\%\ nrow()}
+townships have been reached across
+\texttt{r\ distinct(fsc,\ admin1\_pcode)\ \%\textgreater{}\%\ nrow()}
+states/regions as of 31st July 2022. In July alone,
+\texttt{r\ filter(fsc,\ july\ ==\ "july")\ \%\textgreater{}\%\ distinct(admin3\_pcode)\ \%\textgreater{}\%\ nrow()}
+townships were reached.
+
+\texttt{\{r\ top-townships-pc,\ include=FALSE\}\ fsc\ \%\textgreater{}\%\ \ \ \ group\_by(state,\ township)\ \%\textgreater{}\%\ \ \ \ summarise(beneficiaries\ =\ sum(new\_beneficiaries),\ .groups\ =\ "drop")\ \%\textgreater{}\%\ \ \ \ mutate(pc\ =\ beneficiaries\ /\ sum(beneficiaries))\ \%\textgreater{}\%\ \ \ \ arrange(desc(pc))\ \%\textgreater{}\%\ \ \ \ filter(beneficiaries\ \textgreater{}\ 120000)\ \%\textgreater{}\%\ \ \ \ \{sum(.\$pc)\}}
+
+11,182 beneficiaries were reached in Magway township, this was 22\% of
+the total.
+
+``\texttt{\{r\ table-top-townships\}\ fsc\ \%\textgreater{}\%\ \ \ \ group\_by(state,\ township,\ july)\ \%\textgreater{}\%\ \ \ \ summarise(beneficiaries\ =\ sum(new\_beneficiaries),\ .groups\ =\ "drop")\ \%\textgreater{}\%\ \ \ \ pivot\_wider(values\_from\ =\ beneficiaries,\ names\_from\ =\ july,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ values\_fill\ =\ 0)\ \%\textgreater{}\%\ \ \ \ mutate(total\ =\ jan\_to\_jun\ +\ july,\ \ \ \ \ \ \ \ \ \ \ pc\ =\ round(total\ /\ sum(total)\ *\ 100,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ digits\ =\ 2),\ \ \ \ \ \ \ \ \ \ \ pc\_july\ =\ round(july\ /\ sum(july)\ *\ 100,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ digits\ =\ 2))\ \%\textgreater{}\%\ \ \ \ arrange(desc(pc\_july))\ \%\textgreater{}\%\ \ \ \ head(12)\ \%\textgreater{}\%\ \ \ \ \#\ summarise\_at("july",\ sum)\ \ \ select(state,\ township,\ \ \ \ \ \ \ \ \ \ \ jan\_to\_jun,\ july,}\%\_of\_july\texttt{=\ pc\_july,\ \ \ \ \ \ \ \ \ \ \ total,}\%\_of\_total`
+= pc) \%\textgreater\% flextable() \%\textgreater\% set\_caption(caption
+= ``Top townships by beneficiaries reached, July 2022'')
+\%\textgreater\% theme\_zebra() \%\textgreater\% footnote(part =
+``header'', i = 1, j = 4, value = as\_paragraph((``These top 12
+townships are where 86\% of beneficiaries were reached in July'')))
+
+\hypertarget{fsc-filterjuly-july-summarise_atnew_beneficiaries-sum}{%
+\section{fsc \%\textgreater\% filter(july == ``july'') \%\textgreater\%
+summarise\_at(``new\_beneficiaries'',
+sum)}\label{fsc-filterjuly-july-summarise_atnew_beneficiaries-sum}}
+
+\begin{verbatim}
+
+<br>
+
+When comparing the current footprint to that of the first quarter, the more activity was observed in Mandalay, Magway, Kayah and Kayin. 
+
+
+<br>
+
+```{r maps-july, fig.height=9}
+fsc %>% 
+  filter(july == "july") %>% 
+  group_by(admin3_pcode_old) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries)) %>% 
+  right_join(pcode3_shape, by = c("admin3_pcode_old" = "admin3_pcode")) %>% 
+  st_as_sf() %>% 
+  ggplot() + 
+  geom_sf(aes(fill = beneficiaries), size = .1) +
+  scale_fill_viridis(direction = -1,
+                     option = "mako", 
+                     trans = "log10",
+                     breaks = c(100, 1000, 10000, 100000, 500000), 
+                     labels = comma, 
+                     na.value = "gray90", 
+                     begin = .3) + 
+  theme_void() + 
+  theme(legend.text = element_text(size = 10), 
+        legend.title = element_text(size = 10), 
+        legend.key.size = unit(.7, "cm"), 
+        plot.background = element_rect(fill = "white", colour = "white")) + 
+  labs(title = "Beneficiaries by township, July 2022", 
+       subtitle = "Townships in grey do not have any partners present", 
+       fill = "Beneficiaries") + 
+  
+fsc %>% 
+  filter(july == "july") %>% 
+  group_by(admin3_pcode_old) %>% 
+  summarise(partners = n_distinct(implementing_partner)) %>% 
+  mutate(partners = as.character(partners)) %>% 
+  right_join(pcode3_shape, by = c("admin3_pcode_old" = "admin3_pcode")) %>% 
+  st_as_sf() %>% 
+  ggplot() + 
+  geom_sf(aes(fill = partners), size = .1) +
+  scale_fill_viridis_d(direction = -1,
+                       option = "mako",
+                       na.value = "gray90", 
+                       begin = .3) + 
+  theme_void() + 
+  theme(legend.text = element_text(size = 10), 
+        legend.title = element_text(size = 10), 
+        legend.key.size = unit(.7, "cm"), 
+        plot.background = element_rect(fill = "white", colour = "white")) + 
+  labs(title = "Partners by township, July 2022", 
+       subtitle = "Townships in grey do not have any partners present", 
+       fill = "Partners")  
+
+# ggsave("./plots/maps_jul_2022_beneficiareis_partners.png", dpi = 300, height = 9, width = 8, units = "in")
+  
+\end{verbatim}
+
+\texttt{\{r\ eval\ =\ FALSE\}\ fsc\ \%\textgreater{}\%\ \ \ \ group\_by(state,\ township,\ july)\ \%\textgreater{}\%\ \ \ \ summarise(beneficiaries\ =\ sum(new\_beneficiaries),\ .groups\ =\ "drop")\ \%\textgreater{}\%\ \ \ \ pivot\_wider(values\_from\ =\ beneficiaries,\ names\_from\ =\ july,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ values\_fill\ =\ 0)\ \%\textgreater{}\%\ \ \ \ filter(jan\_to\_jun\ ==\ 0\ \&\ july\ \textgreater{}\ 0)\ \%\textgreater{}\%\ \ \ \ count(state)\ \%\textgreater{}\%\ \ \ \ summarise(n\ =\ sum(n))}
+
+5 newly-reached townships were added in July 2022. They all in Shan
+South are are Laikha, Loilen, Mongnai, Mongpan and Nansang. All very
+traditionally remote and underserved areas.
+
+Of the
+\texttt{r\ fsc\ \%\textgreater{}\%\ count(state,\ township,\ location)\ \%\textgreater{}\%\ nrow()\ \%\textgreater{}\%\ format(big.mark\ =\ ",")}
+sites reached, 421 had more than one partner present.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fsc \%\textgreater{}\% }
+\NormalTok{  filter(!is.na(location)) \%\textgreater{}\% }
+\NormalTok{  group\_by(location, township) \%\textgreater{}\%  }
+\NormalTok{  summarise(beneficiaries = sum(beneficiaries), }
+\NormalTok{            partners = n\_distinct(implementing\_partner), .groups = "drop") \%\textgreater{}\%}
+\NormalTok{  mutate(partners = recode(partners, }
+\NormalTok{                           "1" = "1\_partner", }
+\NormalTok{                           "2" = "2\_partners", }
+\NormalTok{                           "3" = "3\_partners", }
+\NormalTok{                           "4" = "4\_partners")) \%\textgreater{}\% }
+\NormalTok{  group\_by(partners) \%\textgreater{}\% }
+\NormalTok{  summarise\_at("location", n\_distinct) \%\textgreater{}\%  }
+\NormalTok{  flextable() \%\textgreater{}\% }
+\NormalTok{  set\_caption("Number of partners by location, as of 31 July 2022") \%\textgreater{}\% }
+\NormalTok{  theme\_zebra() \%\textgreater{}\% }
+\NormalTok{  set\_table\_properties(layout = "autofit") }
+\end{Highlighting}
+\end{Shaded}
+
+The food security cluster's partners can mostly be found in Yangon,
+Rakhine and Kachin.
+
+```\{r locations-partners-state\} fsc \%\textgreater\% group\_by(state,
+township, location\_type) \%\textgreater\% summarise(partners =
+n\_distinct(implementing\_partner)) \%\textgreater\%
+filter(location\_type != ``Industrial zone'') \%\textgreater\%
+mutate(mean\_partners = mean(partners, na.rm = TRUE)) \%\textgreater\%
+ggplot(aes(x = partners, y = fct\_rev(state), fill = location\_type)) +
+geom\_col() + facet\_wrap(\textasciitilde{} location\_type) +
+scale\_fill\_manual(values = c(``\#F1C40F'', ``\#1ABC9C'',
+``\#EC7063'')) + theme(legend.position = ``none'', strip.text =
+element\_text(size = 10, face = ``bold''), strip.background =
+element\_rect(fill = ``\#212121'')) + labs(x = ``Number of implementing
+partners'', y = ````, title =''Number of implementing partners by state
+and location type'')
+
+\begin{verbatim}
+
+<br><br><br>
+
+## 2. Activities
+
+### 2.1 Progress by activity
+
+The dotted red line shows the end of Q2 2022. The thick line in grey shows the progress in 2021 for the same activity. It should be noted that the 2021 progress lines are just a reference and not meant to be a direct comparison. The scope of the HRP was much different at the start of 2021 and the response only became nationwide in June; the FSC was also much smaller than it is now in 2022. Indeed, with the post-coup crisis affecting both humanitarian and development programming, the need for stronger coordination to adapt food food security programming has pushed many partners to enter the FSC. This type of comparison will be more useful next year. 
+
+<br>
+
+```{r progress-facet-lineplot}
+
+act_line_2021 <- fsc_2021 %>% 
+  filter(unique_beneficiaries == "Yes") %>%
+  mutate(date = date + years(1)) %>% 
+  group_by(activity_red) %>% 
+  arrange(date) %>% 
+  mutate(cum_ben = cumsum(beneficiaries)) %>% 
+  mutate(activity_red = str_replace_all(activity_red, "provision of ", "")) %>% 
+  filter(activity_red %out% c("fishery kits", 
+                              "community infrastructure and equipment"))
+
+fsc %>% 
+  group_by(date, activity_red) %>% 
+  summarise(beneficiaries = sum(beneficiaries)) %>% 
+  # rbind(fsc_2021 %>% 
+  #         # filter(unique_beneficiaries == "Yes") %>%
+  #         group_by(date, activity_red) %>% 
+  #         summarise(beneficiaries = sum(beneficiaries))) %>% 
+  group_by(activity_red) %>% 
+  arrange(date) %>% 
+  mutate(cum_ben = cumsum(beneficiaries)) %>% 
+  arrange(activity_red) %>% 
+  mutate(activity_red = str_replace_all(activity_red, "provision of ", "")) %>%
+  filter(activity_red %out% c("fishery kits", 
+                              "community infrastructure and equipment")) %>% 
+  ggplot(aes(x = date, y = cum_ben, colour = activity_red)) +
+  geom_step(data = act_line_2021, 
+            aes(x = date, 
+                y = cum_ben), 
+            colour = "grey",
+            size = 2, 
+            alpha = .4) + 
+  geom_vline(colour = "red", lty = 2, xintercept = as.numeric(as.Date("2022-06-01")), alpha = .5) +
+  # geom_vline(colour = "red", lty = 2, xintercept = as.numeric(as.Date("2022-03-01")), alpha = .5) +
+  geom_step(size = 1) + 
+  scale_x_date(date_breaks = "1 month", date_labels = "%b") +
+  scale_y_continuous(labels = comma) +
+  facet_wrap(~ activity_red, scales = "free_y") +
+  theme(legend.position = "none",
+        axis.text.x = element_text(size = 5, angle = 60, hjust = 1, vjust = 1), 
+        axis.text.y = element_text(size = 5), 
+        strip.text = element_text(size = 6, face = "bold"),
+        strip.background = element_rect(fill = "#212121")) + 
+  labs(x = "Month", 
+       y = "Cumulative beneficiary frequencies", 
+       title = "Monthly progress by activity, as of July 2022",
+       subtitle = "Figures are in cumulative beneficiary frequencies reached; previous year's progress is in grey; red line marks Jun 2022") +
+  theme(plot.title = element_text(size = 12)) 
+  
+# ggsave("activity_facet_line.png", dpi = 300, height = 5, width = 8, units = "in")  
+\end{verbatim}
+
+In July 2022, progress primarily came from multi-purpose cash transfers,
+farmer training, food distributions and vocational training.
+
+\hypertarget{agricultural-and-livelihoods-activities}{%
+\subsubsection{2.2 Agricultural and livelihoods
+activities}\label{agricultural-and-livelihoods-activities}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ag\_list \textless{}{-} c("crop, vegetable and seed kits",}
+\NormalTok{             "FFS and farmer training",}
+\NormalTok{             "IGA and small grants",}
+\NormalTok{             "livestock kits")}
+
+\end{Highlighting}
+\end{Shaded}
+
+\texttt{r\ filter(fsc,\ activity\_red\ \%in\%\ c(ag\_list))\ \%\textgreater{}\%\ \{sum(.\$new\_beneficiaries)\}\ \%\textgreater{}\%\ format(big.mark\ =\ ",")}
+persons were reached through a combination of crop, vegetable and seed
+kits, FFS and farmer training, IGA and small grants and livestock kits.
+
+``\texttt{\{r\ table-agri-activities\}\ fsc\ \%\textgreater{}\%\ \ \ \ filter(activity\_red\ \%in\%\ c("crop,\ vegetable\ and\ seed\ kits",\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "FFS\ and\ farmer\ training",\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "IGA\ and\ small\ grants",\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "livestock\ kits"))\ \%\textgreater{}\%\ \ \ \ group\_by(activity\_red,\ july)\ \%\textgreater{}\%\ \ \ \ summarise(beneficiaries\ =\ sum(new\_beneficiaries))\ \%\textgreater{}\%\ \ \ pivot\_wider(names\_from\ =\ july,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ values\_from\ =\ beneficiaries,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ values\_fill\ =\ 0)\ \%\textgreater{}\%\ \ \ \ ungroup()\ \%\textgreater{}\%\ \ \ \ mutate(total\ =\ jan\_to\_jun\ +\ july)\ \%\textgreater{}\%\ \ \ \ mutate(}\%\_total`
+= round(total / sum(total) * 100, digits = 2)) \%\textgreater\%\\
+arrange(desc(total)) \%\textgreater\% adorn\_totals(``row'')
+\%\textgreater\% rename(activity = activity\_red) \%\textgreater\%
+flextable() \%\textgreater\% set\_caption(``Beneficiaries reached by
+agricultural and livelihood activities'') \%\textgreater\%
+theme\_zebra() \%\textgreater\% set\_table\_properties(layout =
+``autofit'') \%\textgreater\% footnote(part = ``header'', i = 1, j = 4,
+value = as\_paragraph((``as of 31 July 2022'')))
+
+\begin{verbatim}
+
+
+<br><br>
+
+### 2.3 Delivery modalities
+
+Only HEB and fortified rice, community infrastructure and equipment and kitchen garden kits were delivered entirely through in-kind modalities.
+
+<br>
+
+```{r}
+fsc %>% 
+  filter(!is.na(delivery_modality)) %>% 
+  mutate(delivery_modality = case_when(str_detect(delivery_modality, "Hybrid") ~ "Hybrid", 
+                                       str_detect(delivery_modality, "Service") ~ "Service delivery", 
+                                       TRUE ~ delivery_modality)) %>% 
+  group_by(activity_red, delivery_modality) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries), 
+            .groups = "drop") %>% 
+  pivot_wider(names_from = delivery_modality, values_from = beneficiaries) %>% 
+  adorn_percentages("row") %>% 
+  adorn_pct_formatting() %>% 
+  left_join(fsc %>%
+          filter(!is.na(delivery_modality)) %>%
+          mutate(delivery_modality = case_when(str_detect(delivery_modality, "Hybrid") ~ "Hybrid", 
+                                       str_detect(delivery_modality, "Service") ~ "Service delivery", 
+                                       TRUE ~ delivery_modality)) %>%
+          group_by(activity_red) %>%
+          summarise(Beneficiaries = sum(new_beneficiaries), 
+                    .groups = "drop"), 
+          by = "activity_red") %>%
+  arrange(desc(Beneficiaries)) %>%
+  mutate(activity_red = ifelse(activity_red %in% 
+                                 c("FFS and farmer training",
+                                   "IGA and small grants", 
+                                   "HEB and fortified rice for acute emergencies"), 
+                               activity_red,
+                               str_to_sentence(activity_red))) %>% 
+  rename(Activity = activity_red) %>% 
+  mutate_at(vars(`In-kind`, `Service delivery`, `CBT/CVA`, `Hybrid`), 
+            ~recode(., "-" = NA_character_)) %>%
+  filter(Beneficiaries != 0) %>% 
+  flextable() %>% 
+  set_caption("Percentage of benficiaries reached by activity and delivery modality") %>% 
+  theme_zebra() %>% 
+  set_table_properties(layout = "autofit") %>% 
+  footnote(part = "header", 
+           i = 1, j = 6, 
+           value = as_paragraph("as of 31 July 2022"))
+\end{verbatim}
+
+There are also clear differences between the different beneficiary types
+and the delivery modalities employed with them. Beneficiaries from
+host/local communities largely received in-kind distributions whilst
+those from camps and IDP sites mostly received cash-based interventions,
+indicating that partners mostly worked in the same areas in Q1 and Q2.
+
+```\{r facet-ben-type, fig.height=6\}
+
+fsc \%\textgreater\%\\
+mutate(delivery\_modality = case\_when(str\_detect(delivery\_modality,
+``Hybrid'') \textasciitilde{} ``Hybrid'',
+str\_detect(delivery\_modality, ``Service'') \textasciitilde{} ``Service
+delivery'', TRUE \textasciitilde{} delivery\_modality)) \%\textgreater\%
+filter(!is.na(delivery\_modality) \& !is.na(location\_type))
+\%\textgreater\% sum\_ben2(delivery\_modality, location\_type)
+\%\textgreater\% ggplot(aes(x = delivery\_modality, y = beneficiaries,
+fill = delivery\_modality)) + geom\_col() + scale\_y\_continuous(labels
+= comma) + facet\_wrap(\textasciitilde location\_type, scales =
+``free'') + theme(axis.text.x = element\_text(angle = 25, vjust = .7,
+hjust = .5), legend.position = ``none'', strip.text = element\_text(size
+= 8, face = ``bold''), strip.background = element\_rect(fill =
+``\#212121'')) + labs(x = ``Delivery modality'', y = ``Beneficiaries'',
+title = ``Delivery modalities by location type'')
+
+\begin{verbatim}
+
+<br>
+
+Areas with the highest number of IDPs, such as Sagaing, Rakhine and Kachin, reach most of their beneficiaries through cash-based programming.
+
+<br>
+
+```{r delivery-modalities-stacked-bar}
+state_totals <- fsc %>% 
+  filter(!is.na(delivery_modality)) %>% 
+  group_by(state) %>% 
+  summarise(total = sum(new_beneficiaries)) %>% 
+  mutate(pc = 1, 
+         state = fct_reorder(state, total))
+
+fsc %>%  
+  filter(!is.na(delivery_modality)) %>%  
+   mutate(delivery_modality = case_when(str_detect(delivery_modality, "Hybrid") ~ "Hybrid", 
+                                       str_detect(delivery_modality, "Service") ~ "Service delivery", 
+                                       TRUE ~ delivery_modality)) %>%
+  group_by(state, delivery_modality) %>% 
+  summarise(beneficiaries = sum(beneficiaries)) %>% 
+  group_by(state) %>% 
+  mutate(pc = beneficiaries / sum(beneficiaries),
+         state = fct_reorder(state, beneficiaries)) %>% 
+  ggplot(aes(x = pc, y = fct_rev(state), fill = delivery_modality)) + 
+  geom_col() +
+  scale_x_continuous(labels = percent, breaks = seq(0, 1, by = .2)) + 
+  geom_text(aes(y = state, x = pc + 0.125, label = comma(total, accuracy = 1), fill = NULL), 
+            data = state_totals, hjust = "inward", size = 2.5) +
+  labs(x = "% of total", y = "", fill = "", 
+       title = "Percentage of beneficiaries reached by delivery modalities", 
+       subtitle = "Beneficiaries as of 31 July 2022 at the end of each bar")
+\end{verbatim}
+
+\hypertarget{cash-based-programming}{%
+\subsection{3. Cash-based programming}\label{cash-based-programming}}
+
+\hypertarget{mmk-per-household}{%
+\subsubsection{3.1 MMK per household}\label{mmk-per-household}}
+
+Compared to Q1, beneficiaries in Q2 are much less likely to have
+received cash transfers of less than USD 10 per household. The most
+common transfer values were between USD 60 and 70, an increase from the
+previous quarter.
+
+In July 2022, the most common transfers values were between MMK 100,000
+and MMK 200,000,
+
+```\{r usd-hhd-bin-barplot, fig.height=6.5\}
+
+fsc \%\textgreater\% filter(!is.na(mmk\_per\_hhd) \&
+!is.na(new\_beneficiaries)) \%\textgreater\% filter(delivery\_modality
+\%in\% c(``CBT/CVA'', ``Hybrid (In-kind \& CBT/CVA)'')) \%\textgreater\%
+group\_by(mmk\_hhd\_bin, july) \%\textgreater\% summarise(households =
+sum(households)) \%\textgreater\% group\_by(july) \%\textgreater\%
+mutate(\texttt{\%\_of\_hhd} = round(households / sum(households) * 100,
+digits = 2)) \%\textgreater\% ungroup() \%\textgreater\% filter(july ==
+``july'') \%\textgreater\% mutate(mmk\_hhd\_bin =
+fct\_relevel(mmk\_hhd\_bin, c(``\textless10K'', ``10K\_\textless30K'',
+``30K\_\textless100K'', ``100K\_\textless200K'',
+``200K\_\textless300K'', ``300K\_\textless1M'', ``\textgreater=1M'')))
+\%\textgreater\% ggplot(aes(x = mmk\_hhd\_bin, y = households, fill =
+mmk\_hhd\_bin)) + geom\_col() + geom\_text(aes(label =
+\texttt{\%\_of\_hhd}), vjust = -0.4, size = 3) +
+scale\_fill\_viridis\_d(option = ``mako'', direction = -1) +
+scale\_y\_continuous(labels = comma, breaks = seq(0, 80000, by = 10000))
++ theme(legend.position = ``none'', axis.text.x = element\_text(angle =
+60, hjust = 0.8, vjust = 0.9), strip.text = element\_text(size = 8, face
+= ``bold''), strip.background = element\_rect(fill = ``\#212121'')) +
+labs(x = ``MMK value of cash transfer per household'', y = ``Number of
+households'', title = ``Number of households by value of cash transfer
+per household (July 2022)'', subtitle = ``Figures at the top of each bar
+show percentage of households\nOnly households reached through the cash,
+hybrid or voucher modalities are included'')
+
+\begin{verbatim}
+
+<br>
+
+About 40% of beneficiaries of multi-purpose cash transfers in July 2022 were of quite high value. 
+
+<br>
+
+```{r}
+
+activity_totals <- fsc %>%
+  filter(july == "july") %>% 
+  group_by(activity_red) %>% 
+  summarise(total = sum(new_beneficiaries)) %>%
+  filter(activity_red != "microfinance activities") %>% 
+  mutate(pc = 1, 
+         activity_red = fct_reorder(activity_red, total))
+  
+fsc %>%  
+  filter(july == "july") %>% 
+  group_by(activity_red, mmk_hhd_bin) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries)) %>% 
+  mutate(pc = beneficiaries / sum(beneficiaries)) %>% 
+  filter(activity_red != "microfinance activities") %>% 
+  mutate(mmk_hhd_bin = fct_relevel(mmk_hhd_bin, 
+                                   c("<10K", 
+                                          "10K_<30K", 
+                                          "30K_<100K", 
+                                          "100K_<200K",
+                                          "200K_<300K", 
+                                          "300K_<1M", 
+                                          ">=1M"))) %>% 
+  arrange(mmk_hhd_bin) %>% 
+  ggplot(aes(x = pc, y = activity_red,
+             fill = fct_relevel(mmk_hhd_bin, 
+                                   c("<10K", 
+                                          "10K_<30K", 
+                                          "30K_<100K", 
+                                          "100K_<200K",
+                                          "200K_<300K", 
+                                          "300K_<1M", 
+                                          ">=1M")))) + 
+  geom_col() + 
+  scale_x_continuous(labels = percent, breaks = seq(0, 1, by = .2)) + 
+  scale_fill_viridis_d(option = "mako", direction = -1, 
+                       na.value = "grey50") + 
+  geom_text(aes(y = activity_red, 
+                x = pc + .125, 
+                label = comma(total, accuracy = 1), fill = NULL), 
+            data = activity_totals, hjust = "inward", size = 3.5) + 
+  labs(x = "% of activity total", 
+       y = "", 
+       fill = "", 
+       title = "Percentage of cash beneficiaries by activity, July 2022", 
+       subtitle = "Beneficiaries reached in July 2022 at the end of each bar\nGrey/NA shows beneficiaries of non-cash interventions")
+
+  
+\end{verbatim}
+
+\hypertarget{mmk-per-person}{%
+\subsubsection{3.2 MMK per person}\label{mmk-per-person}}
+
+The boxplots below shows the range of cash transfer values (all values
+are per person, to facilitate comparability) by activity. The average
+for reach activity is marked by the thick line in the middle of each
+box. The leftmost and rightmost side of each box indicate the 25th and
+75th percentile of transfer values, respectively. The length of each box
+is a gauge for how much variation there is in the transfer values of
+each activity.
+
+These plots use data for the entire year, instead of just July.
+
+```\{r boxplot-activity-usd-per-person\}
+
+fsc \%\textgreater\% filter(!is.na(total\_value\_mmk) \& activity\_red
+\%out\% c(``FFS and farmer training'', ``vocational training''))
+\%\textgreater\% mutate(activity\_red =
+fct\_rev(fct\_relevel(activity\_red, c(``food distribution'', ``crop,
+vegentable and seed kits'', ``multi-purpose cash transfer'',
+``food\_cash for work\_assets'', ``IGA and small grants''))))
+\%\textgreater\% arrange(activity\_red) \%\textgreater\% ggplot(aes(y =
+activity\_red, x = mmk\_per\_person, colour = activity\_red)) +
+geom\_jitter(alpha = .1, aes(size = beneficiaries)) +
+geom\_boxplot(alpha = .8, outlier.alpha = .2) +
+scale\_x\_continuous(trans = ``log10'', breaks = c(10000, 30000, 100000,
+300000, 1000000), labels = comma) + theme(legend.position = ``none'',
+axis.text.x = element\_text(angle = 60, hjust = .5, vjust = .5)) +
+labs(x = ``MMK per person'', y = ````, title =''Boxplots of MMK transfer
+values per person, as of July 2022'', subtitle = ``Thick line in each
+box is the average;\n Points are individual interventions, sizes
+indicate number of beneficiaries'')
+
+\begin{verbatim}
+
+<br>
+
+Each of the bubbles represents an individual intervention, with their position along the x-axis showing the USD per person value of the intervention and the size of each bubble indicating the number of beneficiaries reached.
+
+Food distributions tended to have the tightest range of values, which proves that food assistance is quite standardised amongst partners. 
+
+<br>
+
+```{r plotly-transfer-value-scatter, fig.height=6}
+
+money_scatter <- fsc %>% 
+  filter(!is.na(total_value_mmk) & 
+           activity_red %out% c("livestock kits",
+                                "vocational training",
+                                "FFS and farmer training")) %>%
+  group_by(state, township, location, 
+           implementing_partner, 
+           activity_red) %>% 
+  summarise(beneficiaries = sum(beneficiaries), 
+            total_value = sum(total_value_mmk), 
+            rounds = n_distinct(date), 
+            .groups = "drop") %>% 
+  mutate(per_person = round(total_value / beneficiaries, digits = 2)) %>% 
+  filter(total_value > 0) %>%
+  ggplot(aes(x = beneficiaries, 
+             y = per_person, 
+             colour = activity_red, 
+             text = paste0(implementing_partner, "\n", 
+                           activity_red, "\n", 
+                           "ben. frequencies: ", comma(beneficiaries, accuracy = 1), "\n",
+                           "MMK per person: ", comma(per_person, accuracy = 1), "\n", 
+                           "total MMK: ", comma(total_value, accuracy = 1), "\n", 
+                           "rounds: ", rounds, "\n", 
+                           township, ", ", state))) + 
+  geom_jitter(aes(size = total_value), alpha = .5) + 
+  scale_y_continuous(trans = "log10", 
+                     breaks = c(0, 1, 3, 10, 30, 100, 300),
+                     labels = dollar_format(accuracy = 1)) + 
+  scale_x_continuous(trans = "log10", 
+                     labels = comma, 
+                     breaks = c(0, 10, 100, 1000, 10000, 100000, 300000)) + 
+  scale_size_continuous(guide = "none", range = c(0.3, 5)) + 
+  labs(x = "Beneficiary frequencies", 
+       y = "MMK value per person", 
+       title = "Average MMK transfer value per person in 2022\nBy organisation, location and activity", 
+       subtitle = "By organisation, location and activity", 
+       colour = "by org, location and activity\ndouble-click to select") + 
+  theme(legend.text = element_text(size = 5),
+        legend.title = element_text(size = 5),
+        strip.text = element_text(size = 8, face = "bold"),
+        strip.background = element_rect(fill = "#212121")) + 
+  guides(colour = guide_legend(override.aes = list(size = 1, alpha = 1))) 
+
+ggplotly(money_scatter, tooltip = c("text"), width = 820) %>% 
+  config(displayModeBar = FALSE) %>%
+  layout(title = list(text = paste0("Average MMK transfer value per person, as of 31 July 2022")))
+
+\end{verbatim}
+
+\hypertarget{food-distributions}{%
+\subsubsection{3.3 Food distributions}\label{food-distributions}}
+
+```\{r plotly-food-dist-range\}
+
+food\_dist\_range \textless- fsc \%\textgreater\%
+filter(!is.na(mmk\_per\_person)) \%\textgreater\% filter(activity\_red
+== ``food distribution'' \& mmk\_per\_person \textless{} 600000)
+\%\textgreater\% ggplot(aes(x = mmk\_per\_person, y = state, colour =
+state, text = paste0(implementing\_partner, ``\n'', activity\_red,
+``\n'', ``ben. frequencies:'', comma(beneficiaries, accuracy = 1),
+``\n'', ``MMK per person:'', comma(mmk\_per\_person), ``\n'', ``total
+MMK:'', comma(total\_value\_mmk, accuracy = 1), ``\n'', township, ``,'',
+state))) + geom\_vline(xintercept = 19055.5, lty = 2, colour = ``red'',
+alpha = .5, size = .3) + geom\_jitter(alpha = 0.1, aes(size =
+beneficiaries)) + scale\_colour\_viridis\_d() +
+scale\_size\_continuous(range = c(0.3, 10)) +
+scale\_x\_continuous(labels = comma\_format(accuracy = 1), trans =
+``log10'') + labs(x = ``MMK value per person'', y = ````, title =''Food
+distribution: range of MMK values per person by state in 2022, as of
+31-07-2022'', size = ````, colour =''``)
+
+ggplotly(food\_dist\_range, tooltip = c(``text''), width = 820, height =
+600) \%\textgreater\% config(displayModeBar = FALSE) \%\textgreater\%
+layout(title = list(text = paste0(``Food distribution: MMK values by
+state, as of 31-07-2022'', ``'', ``'', ``The red line is 50\% of 1/5 of
+food MEB; double-click on legend to select'', ``'')), legend = list(font
+= list(size = 7)))
+
+\begin{verbatim}
+
+<br>
+
+Beneficiaries in Rakhine are split into two groups, one at around MMK 7,000 and another at MMK 17,000. Kayin has a very large number of persons who received less than MMK 1,000 each. 
+
+Distributions in Chin and Ayeyarwady had very consistent values as they were all implemented by the same implementing partner.
+
+The table below compares the different bins for cash transfer values of food distributions with the minimum expenditure basket for food established by the Cash Working Group. They have established a floor of MMK 190,555 (or USD 114.55) for the food security component per household per month. 
+
+Overall, `r round((filter(fsc, usd_per_person >= (114.55 / 5) & activity_red == "food distribution") %>% {sum(.$new_beneficiaries)}) / (filter(fsc, !is.na(usd_per_person) & activity_red == "food distribution") %>% {sum(.$new_beneficiaries)}) * 100, digits = 2)`% of food distribution beneficiaries have received at least 100% of the food security MEB and `r round((filter(fsc, usd_per_person >= (114.55 / 5 / 2) & activity_red == "food distribution") %>% {sum(.$new_beneficiaries)}) / (filter(fsc, !is.na(usd_per_person) & activity_red == "food distribution") %>% {sum(.$new_beneficiaries)}) * 100, digits = 2)`% have received at least 50% of the food security MEB (MMK 19,056 or USD 11.45 per person).
+
+<br>
+
+```{r table-meb-usd-hhd-bin}
+
+food_bins <- fsc %>% filter(activity_red %in% c("food distribution") & 
+                 !is.na(mmk_per_person) & 
+                 !is.na(new_beneficiaries)) %>% 
+  count(mmk_person_bin, wt = new_beneficiaries) %>% 
+  mutate(pc_of_total = round(n / sum(n) * 100, digits = 2)) %>% 
+  arrange(mmk_person_bin)
+
+fsc %>% 
+  filter(activity_red %in% c("food distribution") &
+                             !is.na(mmk_per_person) &
+                             !is.na(new_beneficiaries)) %>%
+  mutate(pc_meb = mmk_per_person * 5 / 190555) %>% 
+  group_by(mmk_person_bin) %>% 
+  summarise(avg_pc_of_meb = round(mean(pc_meb) * 100, digits = 2),
+            avg_mmk_month = round(mean(mmk_per_person, na.rm = TRUE)),
+            beneficiaries = round(sum(new_beneficiaries))) %>% 
+  mutate(pc_of_hhd = round(beneficiaries / sum(beneficiaries) * 100, 
+                           digits = 2), 
+         mmk_person_bin = fct_relevel(mmk_person_bin, 
+                                          c("<10K", 
+                                          "10K_<30K", 
+                                          "30K_<60K", 
+                                          "60K_<100K", 
+                                          "100K_<200K",
+                                          "200K_<300K",
+                                          "300K_<1M", 
+                                          ">=1M"))) %>% 
+  arrange(mmk_person_bin) %>% 
+  flextable() %>% 
+  set_caption("MMK values of food disributions by percentage of MEB received") %>% 
+  set_table_properties(layout = "autofit") %>% 
+  theme_zebra() %>% 
+  footnote(part = "header",
+           i = 1, j = 4, 
+           value = as_paragraph("Only persons reached through CBT/CVA modalities are included"))
+
+\end{verbatim}
+
+\hypertarget{implementing-partners}{%
+\subsubsection{3.4 Implementing partners}\label{implementing-partners}}
+
+The plots below show the the average cash transfer values by activity
+for the top 7 partners implementing that activity. The x-axis shows the
+number of beneficiaries reached and the depth of the colour indicates
+the value of the cash transfer.
+
+```\{r partner-cash-values, fig.height=6.5\} partner\_mean\_mmk
+\textless- function(tbl, name)\{
+
+tbl \%\textgreater\% filter(!is.na(new\_beneficiaries) \&
+!is.na(mmk\_per\_hhd)) \%\textgreater\% filter(delivery\_modality \%in\%
+c(``CBT/CVA'', ``Hybrid (In-kind \& CBT/CVA)'')) \%\textgreater\%
+filter(activity\_red == \{\{name\}\}) \%\textgreater\% mutate(households
+= ifelse(activity\_red == ``food distribution'', beneficiaries,
+households)) \%\textgreater\% group\_by(implementing\_partner)
+\%\textgreater\% summarise(total\_value\_mmk = sum(total\_value\_mmk),
+beneficiaries = sum(new\_beneficiaries), households = sum(households))
+\%\textgreater\% mutate(mean\_mmk = total\_value\_mmk / households)
+\%\textgreater\% arrange(desc(beneficiaries)) \%\textgreater\%\\
+top\_n(7) \%\textgreater\% mutate(implementing\_partner =
+fct\_reorder(implementing\_partner, beneficiaries)) \%\textgreater\%
+ggplot(aes(x = beneficiaries, y = implementing\_partner, fill =
+mean\_mmk)) + scale\_x\_continuous(labels = comma\_format(accuracy = 1))
++ scale\_fill\_viridis(option = ``mako'', direction = -1, begin = 0.2,
+labels = comma\_format(accuracy = 1)) + geom\_col() +
+geom\_text(aes(label = comma(mean\_mmk)), size = 3, hjust = ``inward'')
++ theme(axis.text.y = element\_text(size = 8)) + labs(x = ``Number of
+beneficiaries reached'', y = ````, fill =''Avg MMK'') +
+theme(legend.title = element\_text(size = 7), legend.text =
+element\_text(size = 5.5), plot.title = element\_text(size = 10),
+axis.title.x = element\_text(size = 8)) \}
+
+fsc \%\textgreater\% partner\_mean\_mmk(``multi-purpose cash transfer'')
++ labs(title = ``Multi-purpose cash transfer (per hhd)'') + fsc
+\%\textgreater\% partner\_mean\_mmk(``food distribution'') + labs(title
+= ``Food distributions (per person)'') + fsc \%\textgreater\%
+partner\_mean\_mmk(``food\_cash for work\_assets'') + labs(title =
+``Food/cash for work/assets (per hhd)'') + fsc \%\textgreater\%
+partner\_mean\_mmk(``IGA and small grants'') + labs(title = ``IGA and
+small grants (per hhd)'') + plot\_annotation(title = ``Cash transfer
+values of the top implementing partners (by beneficiaries reached)'',
+subtitle = ``Faceted by activity'')
+
+\begin{verbatim}
+
+<br><br><br>
+
+## 4. Partners
+
+```{r include=FALSE, eval=FALSE}
+
+fsc %>% select(org_code = reporting_organization) %>% 
+  rbind(
+    fsc %>% select(org_code = implementing_partner)
+  ) %>% 
+  distinct(org_code) %>% nrow()
+
+fsc %>% distinct(reporting_organization) %>% nrow()
+
+fsc %>% distinct(implementing_partner) %>% nrow()
+\end{verbatim}
+
+A total of 75 partners have reported into the Food Security Cluster as
+of July 2022 -- there are 66 implementing partners and 28 reporting
+partners. This first instance of monthly reporting has seen a
+significant dip in submissions, but response has overall been better
+than expected.
+
+All this means is that several partners are waiting until the end of the
+quarter to report in.
+
+This section will mostly only look at year-to-date achievements.
+
+```\{r lineplot-partners\} fsc \%\textgreater\% group\_by(date)
+\%\textgreater\% summarise(implementing =
+n\_distinct(implementing\_partner), reporting =
+n\_distinct(reporting\_organization)) \%\textgreater\%
+pivot\_longer(cols = c(implementing, reporting), names\_to =
+``partner'', values\_to = ``count'') \%\textgreater\% ggplot(aes(x =
+date, y = count, colour = partner)) + geom\_point(size = 2.5) +
+geom\_line(size = 1.5) + geom\_text(aes(label = count), colour =
+``black'', vjust = -.3) + scale\_x\_date(date\_labels = ``\%b-\%y'',
+date\_breaks = ``1 month'') + scale\_colour\_manual(values =
+c(``\#F39C12'', ``\#0E6655'')) + labs(x = ````, y =''Number of
+partners'', colour = ``Parnter\ntype'', title = ``Number of partners
+reporting by month, 31 July 2022'')
+
+\begin{verbatim}
+
+<br><br>
+
+### 4.1 Implementing partners
+
+There are `r fsc %>% filter(july == "july") %>% distinct(implementing_partner) %>% nrow()` partners that were involved in direct implementation that have reported achievements in July 2022, in comparison with `r fsc %>% filter(july != "july") %>% distinct(implementing_partner) %>% nrow()` in the first quarter. These implementing partners corresponded to a total of `r fsc %>%  distinct(reporting_organization) %>% nrow()` reporting organisations. The largest reporting organisation, 2690, had 24 implementing partners.
+
+The interactive plot below shows the number of beneficiaries and townships reached by implementing partner.
+
+`r fsc %>% group_by(implementing_partner) %>% summarise(townships = n_distinct(admin3_pcode)) %>% filter(townships > 5) %>% nrow()` partners (21% of the total) have a presence in more than 5 townships. `r fsc %>% group_by(implementing_partner) %>% summarise(townships = n_distinct(admin3_pcode)) %>% filter(townships > 10) %>% nrow()` partners (16% of the total) are present in more than 10 townships.
+
+<br>
+
+```{r plotly-partner-scatter}
+
+# Median values are x = 5671 and y = 3. Currently using mean. 
+partner_scatter <- fsc %>%  
+  group_by(implementing_partner) %>% 
+  summarise(states = n_distinct(state), 
+            townships = n_distinct(admin3_pcode), 
+            beneficiaries = sum(new_beneficiaries)) %>% 
+  ggplot(aes(x = beneficiaries, y = townships, 
+             text = paste0(implementing_partner, "\n", 
+                           "states: ", states, "\n", 
+                           "townships: ", townships, "\n", 
+                           "beneficiaries: ", comma(beneficiaries, accuracy = 1)))) + 
+  geom_vline(xintercept = 48145.33, lty = 2, colour = "red") + 
+  geom_hline(yintercept = 4.555556, lty = 2, colour = "red") + 
+  geom_point(aes(size = beneficiaries), alpha = .7) + 
+  scale_x_continuous(trans = "log", 
+                     labels = comma, 
+                     breaks = c(0, 100, 300, 1000, 3000, 10000, 30000, 100000, 300000)) +
+  scale_y_continuous(breaks = seq(0, 25, 5)) +
+  labs(x = "Number of beneficiaries",
+       y = "Number of townships",
+       title = "Plot of beneficiaries and townships reached, by implementing partner") +
+  theme(legend.position = "none")
+
+ggplotly(partner_scatter, tooltip = c("text"), width = 820) %>%
+  config(displayModeBar = FALSE) %>% 
+  layout(title = 
+           list(
+             text =
+               paste0(
+                 "Beneficiaries and townships reached, by implementing partner",
+                 "<br>",
+                 "<sup>",
+                 "mouse over for details; sizes indicate beneficiaries reached; red lines are means",
+                 "</sup>"
+               )
+           ))
+
+# Make a comparison with Q1
+\end{verbatim}
+
+\hypertarget{monthly-progress-by-partner}{%
+\subsubsection{4.2 Monthly progress by
+partner}\label{monthly-progress-by-partner}}
+
+The thick grey line shows an organisation's progress from last year,
+which, as mentioned, cannot exactly be used for a straight comparison as
+the scope of the HRP in 2021 was different until the approval of the
+IERP, additionally, many partners only joined the cluster late in 2021
+or even in 2022. Still, it serves as a reference.
+
+```\{r partner-progress-facet-line\}
+
+partner\_top \textless- fsc \%\textgreater\%
+sum\_ben(implementing\_partner) \%\textgreater\%
+arrange(desc(beneficiaries)) \%\textgreater\%\\
+mutate(implementing\_partner = reorder(implementing\_partner,
+-beneficiaries)) \%\textgreater\% pull(implementing\_partner)
+\%\textgreater\% head(12)
+
+line\_2021 \textless- fsc\_2021 \%\textgreater\%
+rename(implementing\_partner = org\_code) \%\textgreater\%
+filter(unique\_beneficiaries == ``Yes'') \%\textgreater\%
+filter(implementing\_partner \%in\% partner\_top) \%\textgreater\%
+select(date, implementing\_partner, beneficiaries, location,
+admin3\_pcode) \%\textgreater\% mutate(date = date + years(1))
+\%\textgreater\% group\_by(location, admin3\_pcode) \%\textgreater\%
+slice(which.max(beneficiaries)) \%\textgreater\%
+group\_by(implementing\_partner) \%\textgreater\% arrange(date)
+\%\textgreater\% mutate(cum\_ben = cumsum(beneficiaries))
+
+fsc \%\textgreater\% filter(implementing\_partner \%in\% partner\_top)
+\%\textgreater\% select(date, implementing\_partner, beneficiaries =
+new\_beneficiaries, location, admin3\_pcode) \%\textgreater\% \#
+rbind(fsc\_2021 \%\textgreater\% \# filter(unique\_beneficiaries ==
+``Yes'') \%\textgreater\% \# filter(org\_code \%in\% partner\_top)
+\%\textgreater\% \# select(date, org\_code, beneficiaries, location,
+admin3\_pcode)) \%\textgreater\% group\_by(location, admin3\_pcode)
+\%\textgreater\% slice(which.max(beneficiaries)) \%\textgreater\%
+group\_by(implementing\_partner) \%\textgreater\% arrange(date)
+\%\textgreater\% mutate(cum\_ben = cumsum(beneficiaries))
+\%\textgreater\% ggplot(aes(x = date, y = cum\_ben)) + geom\_step(data =
+line\_2021, aes(x = date, y = cum\_ben), colour = ``grey'', size = 2,
+alpha = .4) + geom\_vline(colour = ``red'', lty = 2, xintercept =
+as.numeric(as.Date(``2022-06-01'')), alpha = .5) + geom\_vline(colour =
+``red'', lty = 2, xintercept = as.numeric(as.Date(``2022-03-01'')),
+alpha = .5) + geom\_step(size = 0.7) + scale\_x\_date(date\_breaks = ``1
+month'', date\_labels = ``\%b'') + scale\_y\_continuous(labels = comma)
++ facet\_wrap(\textasciitilde{}
+fct\_rev(fct\_reorder(implementing\_partner, cum\_ben, max)), scales =
+``free\_y'') + theme(legend.position = ``none'', axis.text.x =
+element\_text(size = 5, angle = 60, hjust = 1, vjust = 1), axis.text.y =
+element\_text(size = 5), strip.text = element\_text(size = 8, face =
+``bold''), strip.background = element\_rect(fill = ``\#212121''),
+plot.title = element\_text(size = 11)) + \# see if this works when you
+knit, then do it for the other plots labs(x = ``Month'', y =
+``Cumulative beneficiaries'', title = ``Monthly progress of top 12
+implementing partners, as of 31 July 2022'', subtitle = ``Figures show
+cumulative unique beneficiaries; previous year's progress in grey'')
+
+\hypertarget{ggsavepartner_facet_line.png-dpi-300-height-5-width-8-units-in}{%
+\section{ggsave(``partner\_facet\_line.png'', dpi = 300, height = 5,
+width = 8, units =
+``in'')}\label{ggsavepartner_facet_line.png-dpi-300-height-5-width-8-units-in}}
+
+\begin{verbatim}
+
+<br>
+
+The table below lists the top 15 partners by number of beneficiaries reached in 2022.
+
+<br>
+
+```{r}
+fsc %>%
+  group_by(location, admin3_pcode) %>% 
+  slice(which.max(beneficiaries)) %>% 
+  group_by(implementing_partner) %>% 
+  summarise(beneficiaries = sum(beneficiaries), 
+            states = n_distinct(admin1_pcode), 
+            townships = n_distinct(admin3_pcode))%>%
+  arrange(desc(beneficiaries)) %>% 
+  head(15) %>% 
+  flextable() %>% 
+  set_caption("Top implementing partners by beneficiaries reached, as of 31-07-2022") %>%
+  theme_zebra() %>% 
+  set_table_properties(layout = "autofit")
+\end{verbatim}
+
+\hypertarget{donors}{%
+\subsubsection{4.3 Donors}\label{donors}}
+
+The table below summarises the reach and scope (in terms of geographic
+extent and number of organisations supported) of donors who support at
+least two reporting organisations.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fsc \%\textgreater{}\% }
+\NormalTok{  group\_by(donor) \%\textgreater{}\% }
+\NormalTok{  summarise(report\_orgs = n\_distinct(reporting\_organization), }
+\NormalTok{            implementing\_orgs = n\_distinct(implementing\_partner), }
+\NormalTok{            states = n\_distinct(admin1\_pcode), }
+\NormalTok{            townships = n\_distinct(admin3\_pcode)) \%\textgreater{}\% }
+\NormalTok{  filter(!is.na(donor) \& report\_orgs \textgreater{} 1) \%\textgreater{}\% }
+\NormalTok{  arrange(desc(report\_orgs)) \%\textgreater{}\%}
+\NormalTok{  head(15) \%\textgreater{}\% }
+\NormalTok{  flextable() \%\textgreater{}\% }
+\NormalTok{  set\_caption("Organisations supported and geographic reach by donor") \%\textgreater{}\% }
+\NormalTok{  theme\_zebra() \%\textgreater{}\% }
+\NormalTok{  footnote(part = "header", }
+\NormalTok{           i = 1, j = 1, }
+\NormalTok{           value = as\_paragraph("Only showing donors supporting more than one reporting partner"))}
+\end{Highlighting}
+\end{Shaded}
+
+Sagaing, Shan (East), Tanintharyi and Magway have the fewest number of
+donors present.
+
+```\{r table-donor-states\} fsc \%\textgreater\% group\_by(state)
+\%\textgreater\% summarise(donors = n\_distinct(donor),
+implementing\_partners = n\_distinct(implementing\_partner))
+\%\textgreater\% arrange(desc(donors)) \%\textgreater\% flextable()
+\%\textgreater\% set\_caption(``Number of donors by state'')
+\%\textgreater\% set\_table\_properties(layout = ``autofit'')
+\%\textgreater\% theme\_zebra()
+
+\begin{verbatim}
+
+<br>
+
+However, as shown by the table below, even though the majority of partners reported their donors, the omission of data from three key partners has resulted in the vast majority of reported beneficiaries not being associated with any donor.
+
+<br>
+
+```{r table-donors-beneficiaries}
+fsc %>% 
+  group_by(donor) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries)) %>% 
+  mutate(donor = ifelse(is.na(donor), "No donor specified", donor), 
+         donor = ifelse(beneficiaries < 1000, "Other donors", donor)) %>% 
+  group_by(donor) %>% 
+  summarise(beneficiaries = sum(beneficiaries)) %>% 
+  mutate(`%_beneficiaries` = round(beneficiaries / sum(beneficiaries) * 100, digits = 2)) %>% 
+  arrange(desc(`%_beneficiaries`)) %>% 
+  head(15) %>% 
+  flextable() %>% 
+  set_caption("Top donors by beneficiaries reached") %>% 
+  theme_zebra() %>% 
+  set_table_properties(layout = "autofit") %>% 
+  footnote(part = "header", 
+           i = 1, j = 1, 
+           value = as_paragraph("Donors starting with 'org_xxxx' are partners using their own organisational funds"))
+ 
+\end{verbatim}
+
+\hypertarget{beneficiaries}{%
+\subsection{5. Beneficiaries}\label{beneficiaries}}
+
+\texttt{r\ round((filter(fsc,\ beneficiary\_type\ ==\ "Host/local\ Community"\ \&\ july\ ==\ "july")\ \%\textgreater{}\%\ \{sum(.\$new\_beneficiaries)\})\ /\ (filter(fsc,\ july\ ==\ "july")\ \%\textgreater{}\%\ \ \{sum(.\$new\_beneficiaries)\})\ *\ 100,\ digits\ =\ 2)}\%
+of all beneficiaries in July 2022 were from host or local communities.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fsc \%\textgreater{}\% }
+\NormalTok{  filter(july == "july") \%\textgreater{}\% }
+\NormalTok{  group\_by(beneficiary\_type) \%\textgreater{}\% }
+\NormalTok{  summarise(beneficiaries = sum(new\_beneficiaries)) \%\textgreater{}\%}
+\NormalTok{  select(beneficiary\_type, beneficiaries) \%\textgreater{}\% }
+\NormalTok{  ggplot(aes(x = beneficiaries,}
+\NormalTok{             y = fct\_reorder(beneficiary\_type, beneficiaries), }
+\NormalTok{             fill = beneficiary\_type, }
+\NormalTok{             group = beneficiary\_type)) + }
+\NormalTok{  geom\_col() + }
+\NormalTok{  geom\_text(aes(label = comma(beneficiaries)), }
+\NormalTok{            hjust = "inward") + }
+\NormalTok{  scale\_x\_continuous(labels = comma) +}
+\NormalTok{  labs(y = "", x = "Beneficiaries", }
+\NormalTok{       title = "Beneficaries reached by beneficiary type") + }
+\NormalTok{  theme(legend.position = "none")}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{beneficiary-types}{%
+\subsubsection{5.1 Beneficiary types}\label{beneficiary-types}}
+
+In July 2022,
+\texttt{r\ round(filter(fsc,\ beneficiary\_type\ ==\ "Host/local\ Community"\ \&\ july\ ==\ "july")\ \%\textgreater{}\%\ \ \{sum(.\$new\_beneficiaries)\}\ /\ (filter(fsc,\ july\ ==\ "july")\ \%\textgreater{}\%\ \ \{sum(.\$new\_beneficiaries)\})\ *\ 100,\ digits\ =\ 2)}\%
+of beneficiaries were from host or local communities, in comparison to
+\texttt{r\ round(filter(fsc,\ beneficiary\_type\ ==\ "Host/local\ Community")\ \%\textgreater{}\%\ \ \{sum(.\$new\_beneficiaries)\}\ /\ sum(fsc\$new\_beneficiaries)\ *\ 100,\ digits\ =\ 2)}\%
+for the whole year.
+\texttt{r\ round(filter(fsc,\ beneficiary\_type\ ==\ "Internally\ Displaced"\ \&\ july\ ==\ "july")\ \%\textgreater{}\%\ \ \{sum(.\$new\_beneficiaries)\}\ /\ filter(fsc,\ july\ ==\ "july")\ \%\textgreater{}\%\ \ \{sum(.\$new\_beneficiaries)\}\ *\ 100,\ digits\ =\ 2)}\%
+of beneficiaries in July 2022 were IDPs, compared to
+\texttt{r\ round(filter(fsc,\ beneficiary\_type\ ==\ "Internally\ Displaced")\ \%\textgreater{}\%\ \ \{sum(.\$new\_beneficiaries)\}\ /\ sum(fsc\$new\_beneficiaries)\ *\ 100,\ digits\ =\ 2)}\%
+for the whole year.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fsc \%\textgreater{}\% }
+\NormalTok{  group\_by(beneficiary\_type, july) \%\textgreater{}\% }
+\NormalTok{  summarise(beneficiaries = sum(new\_beneficiaries), }
+\NormalTok{            .groups = "drop") \%\textgreater{}\% }
+\NormalTok{  mutate(beneficiary\_type = fct\_reorder(beneficiary\_type, beneficiaries),}
+\NormalTok{         july = recode(july,}
+\NormalTok{                       "no" = "jan\_to\_jun", }
+\NormalTok{                      "yes" = "july" )) \%\textgreater{}\% }
+\NormalTok{  pivot\_wider(names\_from = july, }
+\NormalTok{              values\_from = beneficiaries, }
+\NormalTok{              values\_fill = 0) \%\textgreater{}\% }
+\NormalTok{  mutate(total = jan\_to\_jun + july, }
+\NormalTok{         pc = round(total / sum(total) * 100, }
+\NormalTok{                    digits = 2), }
+\NormalTok{         pc\_july = round(july / sum(july) * 100, }
+\NormalTok{                             digits = 2)) \%\textgreater{}\% }
+\NormalTok{  filter(total != 0) \%\textgreater{}\% }
+\NormalTok{  arrange(desc(pc)) \%\textgreater{}\% }
+\NormalTok{  select(beneficiary\_type, }
+\NormalTok{         jan\_to\_jun, july, }
+\NormalTok{         \textasciigrave{}\%\_of\_july\textasciigrave{} = pc\_july, }
+\NormalTok{         total, }
+\NormalTok{         \textasciigrave{}\%\_of\_total\textasciigrave{} = pc) \%\textgreater{}\% }
+\NormalTok{  adorn\_totals("row") \%\textgreater{}\% }
+\NormalTok{  flextable() \%\textgreater{}\% }
+\NormalTok{  set\_caption(caption = "Persons reached by beneficiary type, as of 31 July 2022") \%\textgreater{}\% }
+\NormalTok{  theme\_zebra()}
+  
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{comparison-with-targets}{%
+\subsection{6. Comparison with targets}\label{comparison-with-targets}}
+
+\hypertarget{reached-vs-target-by-township}{%
+\subsubsection{6.1 Reached vs target by
+township}\label{reached-vs-target-by-township}}
+
+The specifics of each township can be reviewed with the interactive plot
+below. Each point is a township, with the size indicating the number of
+beneficiaries. The x-axis indicates the target population by township
+and the y-axis shows the number of beneficiaries reached, as of 31 July
+2022.
+
+The red line down the middle represents reaching 100\% of the target.
+Townships above this line have reached more beneficiaries than their
+target and townships below the line have not met their target yet. The
+further away a township is from the red line, the further above or below
+its target it is. Mouse over each of the townships to see more details.
+
+The 13 townships along the extreme left side of the plot have
+beneficiaries but do not have targets (their targets have just been
+coded as 1 so that they show up on the plot). 198 townships with targets
+have not been reached.
+
+```\{r eval = FALSE\} 330 - (fsc \%\textgreater\%
+distinct(admin3\_pcode) \%\textgreater\% nrow())
+
+\begin{verbatim}
+
+
+<br>
+
+```{r plotly-tsp-comparison-reached-target}
+
+ben_target <- fsc %>% 
+  group_by(admin3_pcode = admin3_pcode_old) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries),
+            partners = n_distinct(implementing_partner)) %>% 
+  left_join(pin, by = c("admin3_pcode")) %>% 
+  mutate(reached_pc = beneficiaries / fs_targeted,
+         reached_pc = ifelse(is.infinite(reached_pc), 1, reached_pc),
+         fs_targeted = ifelse(fs_targeted == 0 & beneficiaries > 0, 1, fs_targeted),
+         fs_targeted = round(fs_targeted, digits = 0)) %>% 
+  arrange(desc(reached_pc)) %>% 
+  left_join(fsc %>%           
+              filter(july == "july") %>%
+              group_by(admin3_pcode = admin3_pcode_old) %>%
+              summarise(
+                beneficiaries = sum(new_beneficiaries),
+                partners = n_distinct(implementing_partner)
+              ) %>%
+              mutate(july = 1) %>% 
+              select(july, admin3_pcode), by = "admin3_pcode") %>% 
+  mutate(july = ifelse(july == 1, "july", "jan_to_jun")) %>% 
+  replace_na(list(july = "jan_to_jun")) %>% 
+  select(state, township, 
+         fs_pin, fs_targeted, 
+         beneficiaries, reached_pc, 
+         partners, 
+         july) %>%
+  ggplot(aes(x = fs_targeted, y = beneficiaries, colour = july, 
+             text = paste0(township, ",", "\n",
+                           state, ",", "\n",
+                           "beneficiaries: ", comma(beneficiaries, accuracy = 1), "\n",
+                           "target: ", comma(fs_targeted, accuracy = 1), "\n",
+                           "% of target: ", percent(reached_pc, accuracy = 2), "\n", 
+                           "partners: ", partners))) + 
+  geom_abline(intercept = 0, slope = 1, lty = 2, colour = "red") + 
+  geom_abline(intercept = .5, slope = 1, lty = 2, colour = "grey", size = .4) + 
+  geom_abline(intercept = -.5, slope = 1, lty = 2, colour = "grey", size = .4) + 
+  geom_point(aes(size = beneficiaries), alpha = 0.8) +
+  scale_size_continuous(guide = "none") + 
+  scale_x_continuous(trans = "log10", labels = comma) + 
+  scale_y_continuous(trans = "log10", labels = comma) +
+  scale_colour_manual(values = c("#AF7AC5", 
+                                 "#F1C40F")) + 
+  labs(x = "Targeted population", y = "Beneficiaries", 
+       title = "Beneficiaries reached vs targeted population by township, as 31 July 2022",
+       subtitle = "The red line is 100% of target", 
+       colour = "") + 
+  theme(legend.title = element_text(size = 7))
+
+ggplotly(ben_target, tooltip = c("text"), width = 820, height = 500) %>% 
+  config(displayModeBar = FALSE) %>% 
+  layout(title = list(text = 
+                        paste0(
+                          "Beneficiaries vs target by township, as of 31 July 2022",
+                          "<br>",
+                          "<sup>",
+                          "The red line is 100% of target; size shows number of beneficiaries; yellow townships were reached in July",
+                          "</sup>"
+                        )),
+         legend = list(font = list(size = 7)))
+\end{verbatim}
+
+In most of the townships where the food security cluster is present, the
+number of beneficiaries reached is under the cluster target. Townships
+which have been heavily oversubscribed have been listed in the
+\href{https://food-security-cluster-myanmar.github.io/fsc_5ws_second_quarter_2022/}{second
+quarter 5Ws report}.
+
+\hypertarget{map-of-beneficiaries-reached-in-q1-q2-2022-vs-target}{%
+\subsubsection{6.2 Map of beneficiaries reached in Q1 \& Q2 2022 vs
+target}\label{map-of-beneficiaries-reached-in-q1-q2-2022-vs-target}}
+
+```\{r maps-ben-target, fig.height=14\} fsc \%\textgreater\% filter(july
+== ``july'') \%\textgreater\% group\_by(admin3\_pcode =
+admin3\_pcode\_old) \%\textgreater\% summarise(beneficiaries =
+sum(beneficiaries)) \%\textgreater\% right\_join(pcode3\_shape, by =
+c(``admin3\_pcode'')) \%\textgreater\% st\_as\_sf() \%\textgreater\%
+ggplot() + geom\_sf(aes(fill = beneficiaries), size = 0.1) +
+scale\_fill\_viridis\_c(direction = -1, trans = ``log10'', breaks =
+c(100, 1000, 10000, 100000, 500000), labels = comma, na.value =
+``gray90'', begin = .3) + theme\_void() + theme(legend.text =
+element\_text(size = 10), legend.title = element\_text(size = 10),
+legend.key.size = unit(0.7, `cm'), plot.background = element\_rect(fill
+= ``white'', colour = ``white'')) + labs(title = ``Beneficiaries in July
+2022, by township'', subtitle = ``townships in grey do not have any
+partners present'', fill = ``Beneficiaries'') +
+
+fsc \%\textgreater\% group\_by(admin3\_pcode = admin3\_pcode\_old)
+\%\textgreater\% summarise(beneficiaries = sum(beneficiaries))
+\%\textgreater\% right\_join(pcode3\_shape, by = c(``admin3\_pcode''))
+\%\textgreater\% st\_as\_sf() \%\textgreater\% ggplot() +
+geom\_sf(aes(fill = beneficiaries), size = 0.1) +
+scale\_fill\_viridis\_c(direction = -1, trans = ``log10'', breaks =
+c(100, 1000, 10000, 100000, 500000), labels = comma, na.value =
+``gray90'') + theme\_void() + theme(legend.text = element\_text(size =
+10), legend.title = element\_text(size = 10), legend.key.size =
+unit(0.7, `cm'), plot.background = element\_rect(fill = ``white'',
+colour = ``white'')) + labs(title = ``Beneficiaries Total 2022 as of 31
+July 2022, by township'', subtitle = ``townships in grey do not have any
+partners present'', fill = ``Beneficiaries'') + pin \%\textgreater\%
+right\_join(pcode3\_shape, by = ``admin3\_pcode'') \%\textgreater\%
+st\_as\_sf() \%\textgreater\%\\
+ggplot() + geom\_sf(aes(fill = fs\_targeted), size = .1) +
+scale\_fill\_viridis\_c(direction = -1, trans = ``log10'',\\
+breaks = c(100, 1000, 10000, 100000, 500000), limits = range(57,
+801760), labels = comma, na.value = ``gray90'') + theme\_void() +
+theme(legend.text = element\_text(size = 10), legend.title =
+element\_text(size = 10), legend.key.size = unit(0.7, `cm'),
+plot.background = element\_rect(fill = ``white'', colour = ``white'')) +
+labs(title = ``Target by township'', subtitle = ``townships in grey do
+not food security targets'', fill = ``target'') +
+
+pin \%\textgreater\% right\_join(pcode3\_shape, by = ``admin3\_pcode'')
+\%\textgreater\%\\
+st\_as\_sf() \%\textgreater\% ggplot() + geom\_sf(aes(fill = fs\_pin),
+size = .1) + scale\_fill\_viridis\_c(direction = -1, trans =
+``log10'',\\
+breaks = c(100, 1000, 10000, 100000, 500000), limits = range(57,
+801760), labels = comma, na.value = ``gray90'') + theme\_void() +
+theme(legend.text = element\_text(size = 10), legend.title =
+element\_text(size = 10), legend.key.size = unit(0.7, `cm'),
+plot.background = element\_rect(fill = ``white'', colour = ``white'')) +
+labs(title = ``People in Need by township'', subtitle = ``townships in
+grey do not food security targets'', fill = ``PIN'')
+
+\hypertarget{ggsavetarget_by_tsp.png-dpi-300-height-18-width-11-units-in}{%
+\section{ggsave(``target\_by\_tsp.png'', dpi = 300, height = 18, width =
+11, units =
+``in'')}\label{ggsavetarget_by_tsp.png-dpi-300-height-18-width-11-units-in}}
+
+\begin{verbatim}
+
+<br><br><br>
+
+### 6.3 Interactive reference table
+
+In the interactive table below, is a list of townships sorted by the gap between the targeted population and beneficiaries reached in 2022. Any of the columns can be sort; the search bars above each column can also assist in filtering.
+
+<br>
+
+```{r}
+fsc %>% 
+  group_by(admin3_pcode_old) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries),
+            july_ben = sum(new_beneficiaries[july == "july"]), 
+            partners = n_distinct(implementing_partner)) %>% 
+  right_join(pin, by = c("admin3_pcode_old" = "admin3_pcode")) %>% 
+  replace_na(list(beneficiaries = 0, 
+                  july_beneficiaries = 0)) %>%
+  mutate(reached_pc = beneficiaries / fs_targeted,
+         reached_pc = ifelse(is.infinite(reached_pc), 1, reached_pc),
+         reached_pc = round(reached_pc * 100, digits = 2), 
+         fs_targeted = round(fs_targeted, digits = 0), 
+         gap = fs_targeted - beneficiaries) %>% 
+  arrange(gap) %>% 
+  select(state, township, target = fs_targeted, beneficiaries,
+         july_ben, 
+         gap, `%_reached` = reached_pc, partners) %>% 
+  datatable(options = list(pageLength = 15, scrollX = TRUE), 
+            filter = list(position = "top", clear = FALSE),
+            caption = htmltools::tags$caption(style = 'caption-side: top; 
+                                    text-align: center; 
+                                    color:black; font-size:120% ;',
+                                    "Reference table -- townships")) %>% 
+  formatRound(c("target", "beneficiaries", "gap"), digits = 0) %>% 
+  formatStyle(0, target = "row", lineHeight = "80%", fontSize = "80%")
+
+
+\end{verbatim}
+
+You can also embed plots, for example:
+
+\texttt{\{r\ pressure,\ echo=FALSE\}\ plot(pressure)}
+
+Note that the \texttt{echo\ =\ FALSE} parameter was added to the code
+chunk to prevent printing of the R code that generated the plot.
+
+\end{document}

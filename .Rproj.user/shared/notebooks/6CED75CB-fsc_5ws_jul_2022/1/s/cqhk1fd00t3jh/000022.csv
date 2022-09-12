@@ -1,0 +1,27 @@
+"0","fsc %>% 
+  filter(activity_red %in% c(""crop, vegetable and seed kits"",
+                             ""FFS and farmer training"",
+                             ""IGA and small grants"",
+                             ""livestock kits"")) %>% 
+  group_by(activity_red, july) %>% 
+  summarise(beneficiaries = sum(new_beneficiaries)) %>%
+  pivot_wider(names_from = july, 
+              values_from = beneficiaries,
+              values_fill = 0) %>% 
+  ungroup() %>% 
+  mutate(total = jan_to_jun + july) %>% 
+  mutate(`%_total` = round(total / sum(total) * 100,
+                           digits = 2)) %>%  
+  arrange(desc(total)) %>% 
+  adorn_totals(""row"") %>% 
+  rename(activity = activity_red) %>% 
+  flextable() %>% 
+  set_caption(""Beneficiaries reached by agricultural and livelihood activities"") %>% 
+  theme_zebra() %>% 
+  footnote(part = ""header"", 
+           i = 1, j = 4,
+             value = as_paragraph((""as of 31 July 2022""))) %>% 
+  set_table_properties(width = .9, layout = ""autofit"")
+"
+"2","`summarise()` has grouped output by 'activity_red'. You can override using the `.groups` argument.
+"
