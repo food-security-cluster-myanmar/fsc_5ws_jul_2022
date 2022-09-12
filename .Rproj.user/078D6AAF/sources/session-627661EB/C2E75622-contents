@@ -229,7 +229,7 @@ fsc %>%
 filter(fsc, humanitarian_or_development == "Humanitarian") %>% {sum(.$new_beneficiaries)} / sum(pin$fs_targeted)
 ```
 
-Beneficiaries of humanitarian action formed `r round(filter(fsc, humanitarian_or_development == "Humanitarian" & july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} / sum(fsc$new_beneficiaries, na.rm = TRUE) * 100, digits = 2)`% of the `r sum(fsc$new_beneficiaries) %>% format(big.mark = ",")` beneficiaries in July 2022. The remainder were reached through development interventions.
+Beneficiaries of humanitarian action formed `r round(filter(fsc, humanitarian_or_development == "Humanitarian" & july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} / filter(fsc, july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} * 100, digits = 2)`% of the `r filter(fsc, july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} %>% format(big.mark = ",")` beneficiaries in July 2022. The remainder were reached through development interventions.
 
 In this report, when beneficiaries are mentioned, the Food Security Cluster is referring to unique beneficiaries or individuals. This is different from a beneficiary frequency which is an instance of a person receiving aid i.e. a person who receives food distributions, a crop, vegetable and seed kit and farmer training would be counted as three beneficiary frequencies, but as only one beneficiary. 
 
@@ -425,7 +425,7 @@ fsc %>%
 
 ### 1.2 Townships
 
-A total of `r distinct(fsc, admin3_pcode) %>% nrow()` townships have been reached across `r distinct(fsc, admin1_pcode) %>% nrow()` states/regions as of 31st July 2022.
+A total of `r distinct(fsc, admin3_pcode) %>% nrow()` townships have been reached across `r distinct(fsc, admin1_pcode) %>% nrow()` states/regions as of 31st July 2022. In July alone, `r filter(fsc, july == "july") %>% distinct(admin3_pcode) %>% nrow()` townships were reached. 
 
 ```{r top-townships-pc, include=FALSE}
 fsc %>% 
@@ -437,7 +437,7 @@ fsc %>%
   {sum(.$pc)}
 ```
 
-The top 7 townships -- Hlaingtharya East and West, Shwepyithar, North Okkalapa, Buthidaung, Dala and Sittwe -- by total number of beneficiaries reached are all from Yangon or Rakhine and contained 65% of all beneficiaries. There is, overall, still quite a significant skew in where the food security cluster is reaching its beneficiaries. 
+11,182 beneficiaries were reached in Magway township, this was 22% of the total.  
 
 <br>
 
@@ -461,7 +461,7 @@ fsc %>%
          total, 
          `%_of_total` = pc) %>%
   flextable() %>% 
-  set_caption(caption = "Top townships by beneficiaries reached, as of July 2022") %>% 
+  set_caption(caption = "Top townships by beneficiaries reached, July 2022") %>% 
   theme_zebra() %>% 
   footnote(part = "header", 
            i = 1, j = 4,
@@ -473,7 +473,7 @@ fsc %>%
 
 <br>
 
-When comparing the current footprint to that of the first quarter, the most significant new activity was observed in Mandalay, Magway, Kayah and Kayin. 
+When comparing the current footprint to that of the first quarter, the more activity was observed in Mandalay, Magway, Kayah and Kayin. 
 
 
 <br>
@@ -542,9 +542,9 @@ fsc %>%
   summarise(n = sum(n))
 ```
 
-5 new townships were reached in July 2022. They all in Shan South are are Laikha, Loilen, Mongnai, Mongpan and Nansang. All very traditionally remote and underserved areas. 
+5 newly-reached townships were added in July 2022. They all in Shan South are are Laikha, Loilen, Mongnai, Mongpan and Nansang. All very traditionally remote and underserved areas. 
 
-Of the `r fsc %>% count(state, township, location) %>% nrow() %>% format(big.mark = ",")`` sites reached, 421 had more than one partner present.  
+Of the `r fsc %>% count(state, township, location) %>% nrow() %>% format(big.mark = ",")` sites reached, 421 had more than one partner present.  
 
 <br>
 
