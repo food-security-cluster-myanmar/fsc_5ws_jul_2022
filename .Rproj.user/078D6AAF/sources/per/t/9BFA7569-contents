@@ -1,42 +1,13 @@
 ---
 title: "Report on 5Ws"
 subtitle: "July 2022"
-author: "[Myanmar Food Security Cluster](https://food-security-cluster-myanmar.github.io/)"
+author: "Myanmar Food Security Cluster"
 date: "2022-09-01"
-output:
-  html_document:
-    code_download: yes
-    theme: readable
+output: 
+  word_document:
     toc: yes
-    toc_depth: 4
-    toc_float: yes
-    number_sections: no
-    collapsed: no
-always_allow_html: yes
+always_allow_html: tru
 ---
-
-```{css, echo=FALSE}
-
-#TOC::before {
-  content: "";
-  display: block;
-  height: 70px;
-  margin: 2em 20px 40px 20px;
-  background-image: url("Myanmar_cluster_blue.png");
-  background-size: contain;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-```
-
-```{=html}
-<style>
-    body .main-container {
-        max-width: 1280px;
-    }
-</style>
-```
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, fig.width=9, message = FALSE, warning=FALSE)
@@ -164,15 +135,10 @@ pcode1_shape <- st_read("./mmr_polbnda2_adm1_mimu_250k/mmr_polbnda2_adm1_mimu_25
  rename(state = ST, 
         admin1_pcode = ST_PCODE) %>% st_as_sf()
 
-southeast <- c("Kayin", 
-                      "Kayah", 
-                      "Mon", 
-                      "Tanintharyi", 
-                      "Shan (South)")
-
 ```
 
 
+[Food Security Cluster Myanmar homepage](https://food-security-cluster-myanmar.github.io/)
 
 <br>
 
@@ -180,11 +146,7 @@ southeast <- c("Kayin",
 ## Summary of new achievements  
 
 ```{r maps-tsp-jul, fig.height=9}
-
-
-
 fsc %>% 
-  # filter(state %in% southeast) %>% 
   filter(july == "july") %>% 
   group_by(admin3_pcode_old) %>% 
   summarise(beneficiaries = sum(new_beneficiaries)) %>% 
@@ -236,11 +198,9 @@ fsc %>%
 
 ```{r overall-pc, eval=FALSE}
 filter(fsc, humanitarian_or_development == "Humanitarian") %>% {sum(.$new_beneficiaries)} / sum(pin$fs_targeted)
-
-round(filter(fsc, humanitarian_or_development == "Humanitarian" & july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} / filter(fsc, july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} * 100, digits = 2)
 ```
 
-Beneficiaries of humanitarian action formed `r round(filter(fsc, humanitarian_or_development == "Humanitarian" & july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} / filter(fsc, july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} * 100, digits = 2)`% of the `r filter(fsc, july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} %>% format(big.mark = ",")` beneficiaries in July 2022. The remainder were reached through development interventions.
+Beneficiaries of humanitarian action in July 2022 formed `r round(filter(fsc, humanitarian_or_development == "Humanitarian" & july == "july") %>% {sum(.$new_beneficiaries, na.rm = TRUE)} / sum(fsc$new_beneficiaries, na.rm = TRUE) * 100, digits = 2)`% of the `r sum(fsc$new_beneficiaries) %>% format(big.mark = ",")` beneficiaries in the first quarter of 2022. The remainder were reached through development interventions.
 
 In this report, when beneficiaries are mentioned, the Food Security Cluster is referring to unique beneficiaries or individuals. This is different from a beneficiary frequency which is an instance of a person receiving aid i.e. a person who receives food distributions, a crop, vegetable and seed kit and farmer training would be counted as three beneficiary frequencies, but as only one beneficiary. 
 
@@ -264,7 +224,7 @@ fsc %>%
   flextable() %>% 
   set_caption("Beneficiaries reached per month") %>% 
   theme_zebra() %>% 
-  set_table_properties(layout = "autofit", width = .7) 
+  set_table_properties(layout = "autofit") 
 ```
 
 <br>
@@ -285,7 +245,6 @@ activity_list <- fsc %>%
 ```{r barplot-activity}
 
 fsc %>% 
-  filter(state %in% c(southeast)) %>% 
   filter(july == "july") %>% 
   group_by(activity = activity_red) %>% 
   summarise(beneficiaries = sum(new_beneficiaries)) %>% 
@@ -333,8 +292,7 @@ fsc %>%
   flextable() %>% 
   set_caption(caption = "Beneficiaries by acitivity, as of 31 July 2022") %>% 
   theme_zebra() %>% 
-  set_table_properties(layout = "autofit",
-              width = .85)
+  set_table_properties(layout = "autofit")
 
 
 ```
@@ -438,7 +396,7 @@ fsc %>%
 
 ### 1.2 Townships
 
-A total of `r distinct(fsc, admin3_pcode) %>% nrow()` townships have been reached across `r distinct(fsc, admin1_pcode) %>% nrow()` states/regions as of 31st July 2022. In July alone, `r filter(fsc, july == "july") %>% distinct(admin3_pcode) %>% nrow()` townships were reached. 
+A total of `r distinct(fsc, admin3_pcode) %>% nrow()` townships have been reached across `r distinct(fsc, admin1_pcode) %>% nrow()` states/regions as of 31st July 2022.
 
 ```{r top-townships-pc, include=FALSE}
 fsc %>% 
@@ -450,7 +408,7 @@ fsc %>%
   {sum(.$pc)}
 ```
 
-11,182 beneficiaries were reached in Magway township, this was 22% of the total.  
+The top 7 townships -- Hlaingtharya East and West, Shwepyithar, North Okkalapa, Buthidaung, Dala and Sittwe -- by total number of beneficiaries reached are all from Yangon or Rakhine and contained 65% of all beneficiaries. There is, overall, still quite a significant skew in where the food security cluster is reaching its beneficiaries. 
 
 <br>
 
@@ -474,7 +432,7 @@ fsc %>%
          total, 
          `%_of_total` = pc) %>%
   flextable() %>% 
-  set_caption(caption = "Top townships by beneficiaries reached, July 2022") %>% 
+  set_caption(caption = "Top townships by beneficiaries reached, as of July 2022") %>% 
   theme_zebra() %>% 
   footnote(part = "header", 
            i = 1, j = 4,
@@ -486,7 +444,7 @@ fsc %>%
 
 <br>
 
-When comparing the current footprint to that of the first quarter, the more activity was observed in Mandalay, Magway, Kayah and Kayin. 
+When comparing the current footprint to that of the first quarter, the most significant new activity was observed in Mandalay, Magway, Kayah and Kayin. 
 
 
 <br>
@@ -555,9 +513,9 @@ fsc %>%
   summarise(n = sum(n))
 ```
 
-5 newly-reached townships were added in July 2022. They all in Shan South are are Laikha, Loilen, Mongnai, Mongpan and Nansang. All very traditionally remote and underserved areas. 
+5 new townships were reached in July 2022. They all in Shan South are are Laikha, Loilen, Mongnai, Mongpan and Nansang. All very traditionally remote and underserved areas. 
 
-Of the `r fsc %>% count(state, township, location) %>% nrow() %>% format(big.mark = ",")` sites reached, 421 had more than one partner present.  
+Of the `r fsc %>% count(state, township, location) %>% nrow() %>% format(big.mark = ",")`` sites reached, 421 had more than one partner present.  
 
 <br>
 
@@ -711,10 +669,10 @@ fsc %>%
   flextable() %>% 
   set_caption("Beneficiaries reached by agricultural and livelihood activities") %>% 
   theme_zebra() %>% 
+  set_table_properties(layout = "autofit") %>% 
   footnote(part = "header", 
            i = 1, j = 4,
-             value = as_paragraph(("as of 31 July 2022"))) %>% 
-  set_table_properties(width = .8, layout = "autofit")
+             value = as_paragraph(("as of 31 July 2022")))
   
 ```
 
@@ -762,11 +720,10 @@ fsc %>%
   flextable() %>% 
   set_caption("Percentage of benficiaries reached by activity and delivery modality") %>% 
   theme_zebra() %>% 
+  set_table_properties(layout = "autofit") %>% 
   footnote(part = "header", 
            i = 1, j = 6, 
-           value = as_paragraph("as of 31 July 2022")) %>% 
-  set_table_properties(layout = "autofit", 
-                       width = .95)
+           value = as_paragraph("as of 31 July 2022"))
 
 ```
 
@@ -989,7 +946,7 @@ Food distributions tended to have the tightest range of values, which proves tha
 
 ```{r plotly-transfer-value-scatter, fig.height=6}
 
-money_scatter <- fsc %>% 
+fsc %>% 
   filter(!is.na(total_value_mmk) & 
            activity_red %out% c("livestock kits",
                                 "vocational training",
@@ -1023,7 +980,7 @@ money_scatter <- fsc %>%
   scale_size_continuous(guide = "none", range = c(0.3, 5)) + 
   labs(x = "Beneficiary frequencies", 
        y = "MMK value per person", 
-       title = "Average MMK transfer value per person in 2022\nBy organisation, location and activity", 
+       title = "Average MMK transfer value per person, as of 31 July 2022", 
        subtitle = "By organisation, location and activity", 
        colour = "by org, location and activity\ndouble-click to select") + 
   theme(legend.text = element_text(size = 5),
@@ -1031,11 +988,6 @@ money_scatter <- fsc %>%
         strip.text = element_text(size = 8, face = "bold"),
         strip.background = element_rect(fill = "#212121")) + 
   guides(colour = guide_legend(override.aes = list(size = 1, alpha = 1))) 
-
-ggplotly(money_scatter, tooltip = c("text"), width = 820) %>% 
-  config(displayModeBar = FALSE) %>%
-  layout(title = list(text = paste0("Average MMK transfer value per person, as of 31 July 2022")))
-
 
 ```
 
@@ -1046,7 +998,7 @@ ggplotly(money_scatter, tooltip = c("text"), width = 820) %>%
 
 ```{r plotly-food-dist-range}
 
-food_dist_range <- fsc %>% 
+fsc %>% 
   filter(!is.na(mmk_per_person)) %>%
   filter(activity_red == "food distribution" & mmk_per_person < 600000) %>% 
   ggplot(aes(x = mmk_per_person, y = state, colour = state, 
@@ -1064,19 +1016,11 @@ food_dist_range <- fsc %>%
                      trans = "log10") +
   labs(x = "MMK value per person", 
        y = "", 
-       title = "Food distribution: range of MMK values per person by state in 2022, as of 31-07-2022",
+       title = "Food distribution: range of MMK values per person by state, as of 31-07-2022",
+       subtitle = "The red line 50% of 1/5 of food MEB; double-click on legend to select",
        size = "", colour = "") 
 
-ggplotly(food_dist_range, tooltip = c("text"), width = 820, height =  600) %>% 
-  config(displayModeBar = FALSE) %>%
-  layout(title = 
-           list(text = 
-                  paste0("Food distribution: MMK values by state, as of 31-07-2022",
-                         "<br>",
-                         "<sup>",
-                         "The red line is 50% of 1/5 of food MEB; double-click on legend to select",
-                         "</sup>")), 
-         legend = list(font = list(size = 7))) 
+
 ```
 
 <br>
@@ -1259,7 +1203,7 @@ The interactive plot below shows the number of beneficiaries and townships reach
 ```{r plotly-partner-scatter}
 
 # Median values are x = 5671 and y = 3. Currently using mean. 
-partner_scatter <- fsc %>%  
+fsc %>%  
   group_by(implementing_partner) %>% 
   summarise(states = n_distinct(state), 
             townships = n_distinct(admin3_pcode), 
@@ -1280,20 +1224,6 @@ partner_scatter <- fsc %>%
        y = "Number of townships",
        title = "Plot of beneficiaries and townships reached, by implementing partner") +
   theme(legend.position = "none")
-
-ggplotly(partner_scatter, tooltip = c("text"), width = 820) %>%
-  config(displayModeBar = FALSE) %>% 
-  layout(title = 
-           list(
-             text =
-               paste0(
-                 "Beneficiaries and townships reached, by implementing partner",
-                 "<br>",
-                 "<sup>",
-                 "mouse over for details; sizes indicate beneficiaries reached; red lines are means",
-                 "</sup>"
-               )
-           ))
 
 # Make a comparison with Q1
 ```
@@ -1538,7 +1468,6 @@ fsc %>%
          `%_of_total` = pc) %>% 
   adorn_totals("row") %>% 
   flextable() %>% 
-  set_table_properties(width = .85) %>% 
   set_caption(caption = "Persons reached by beneficiary type, as of 31 July 2022") %>% 
   theme_zebra()
   
@@ -1569,7 +1498,7 @@ The 13 townships along the extreme left side of the plot have beneficiaries but 
 
 ```{r plotly-tsp-comparison-reached-target}
 
-ben_target <- fsc %>% 
+fsc %>% 
   group_by(admin3_pcode = admin3_pcode_old) %>% 
   summarise(beneficiaries = sum(new_beneficiaries),
             partners = n_distinct(implementing_partner)) %>% 
@@ -1616,18 +1545,6 @@ ben_target <- fsc %>%
        subtitle = "The red line is 100% of target", 
        colour = "") + 
   theme(legend.title = element_text(size = 7))
-
-ggplotly(ben_target, tooltip = c("text"), width = 820, height = 500) %>% 
-  config(displayModeBar = FALSE) %>% 
-  layout(title = list(text = 
-                        paste0(
-                          "Beneficiaries vs target by township, as of 31 July 2022",
-                          "<br>",
-                          "<sup>",
-                          "The red line is 100% of target; size shows number of beneficiaries; yellow townships were reached in July",
-                          "</sup>"
-                        )),
-         legend = list(font = list(size = 7)))
 
 ```
 
@@ -1731,40 +1648,10 @@ pin %>%
 
 ### 6.3 Interactive reference table
 
-In the interactive table below, is a list of townships sorted by the gap between the targeted population and beneficiaries reached in 2022. Any of the columns can be sorted; the search bars above each column can also be used to filter entries.
+In the interactive table below, is a list of townships sorted by the gap between the targeted population and beneficiaries reached in 2022. Any of the columns can be sort; the search bars above each column can also assist in filtering.
 
-<br>
+This is not available in the word version of this report. Please use the [online version](https://food-security-cluster-myanmar.github.io/fsc_5ws_jul_2022/) to access this table. 
 
-```{r}
-fsc %>% 
-  group_by(admin3_pcode_old) %>% 
-  summarise(beneficiaries = sum(new_beneficiaries),
-            july_ben = sum(new_beneficiaries[july == "july"]), 
-            partners = n_distinct(implementing_partner)) %>% 
-  right_join(pin, by = c("admin3_pcode_old" = "admin3_pcode")) %>% 
-  replace_na(list(beneficiaries = 0, 
-                  july_beneficiaries = 0)) %>%
-  mutate(reached_pc = beneficiaries / fs_targeted,
-         reached_pc = ifelse(is.infinite(reached_pc), 1, reached_pc),
-         reached_pc = round(reached_pc * 100, digits = 2), 
-         fs_targeted = round(fs_targeted, digits = 0), 
-         gap = fs_targeted - beneficiaries) %>% 
-  arrange(gap) %>% 
-  select(state, township, target = fs_targeted, beneficiaries,
-         july_ben, 
-         gap, `%_reached` = reached_pc, partners) %>% 
-  datatable(options = list(pageLength = 15, scrollX = TRUE), 
-            filter = list(position = "top", clear = FALSE),
-            caption = htmltools::tags$caption(style = 'caption-side: top; 
-                                    text-align: center; 
-                                    color:black; font-size:120% ;',
-                                    "Reference table -- townships")) %>% 
-  formatRound(c("target", "beneficiaries", "gap"), digits = 0) %>% 
-  formatStyle(0, target = "row", lineHeight = "80%", fontSize = "80%")
-
-
-
-```
 
 
 

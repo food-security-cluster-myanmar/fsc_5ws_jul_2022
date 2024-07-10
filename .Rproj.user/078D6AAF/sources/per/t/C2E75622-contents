@@ -1,7 +1,7 @@
 ---
 title: "Report on 5Ws"
 subtitle: "July 2022"
-author: "Myanmar Food Security Cluster"
+author: "[Myanmar Food Security Cluster](https://food-security-cluster-myanmar.github.io/)"
 date: "2022-09-01"
 output:
   html_document:
@@ -164,10 +164,15 @@ pcode1_shape <- st_read("./mmr_polbnda2_adm1_mimu_250k/mmr_polbnda2_adm1_mimu_25
  rename(state = ST, 
         admin1_pcode = ST_PCODE) %>% st_as_sf()
 
+southeast <- c("Kayin", 
+                      "Kayah", 
+                      "Mon", 
+                      "Tanintharyi", 
+                      "Shan (South)")
+
 ```
 
 
-[Food Security Cluster Myanmar homepage](https://food-security-cluster-myanmar.github.io/)
 
 <br>
 
@@ -175,7 +180,11 @@ pcode1_shape <- st_read("./mmr_polbnda2_adm1_mimu_250k/mmr_polbnda2_adm1_mimu_25
 ## Summary of new achievements  
 
 ```{r maps-tsp-jul, fig.height=9}
+
+
+
 fsc %>% 
+  # filter(state %in% southeast) %>% 
   filter(july == "july") %>% 
   group_by(admin3_pcode_old) %>% 
   summarise(beneficiaries = sum(new_beneficiaries)) %>% 
@@ -276,6 +285,7 @@ activity_list <- fsc %>%
 ```{r barplot-activity}
 
 fsc %>% 
+  filter(state %in% c(southeast)) %>% 
   filter(july == "july") %>% 
   group_by(activity = activity_red) %>% 
   summarise(beneficiaries = sum(new_beneficiaries)) %>% 
@@ -1755,6 +1765,7 @@ fsc %>%
 
 
 ```
+
 
 
 

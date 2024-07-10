@@ -1,0 +1,28 @@
+{
+    "id": "531FC883",
+    "path": "~/R/fsc_5ws_jul_2022/ocha_activity_costing_trends.R",
+    "project_path": "ocha_activity_costing_trends.R",
+    "type": "r_source",
+    "hash": "4184118320",
+    "contents": "",
+    "dirty": false,
+    "created": 1663662306625.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "tempName": "Untitled1",
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "30,7",
+        "scrollLine": "0",
+        "docOutlineVisible": "1"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1663662698,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1663662698455,
+    "read_only": false,
+    "read_only_alternatives": []
+}
